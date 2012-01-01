@@ -9,11 +9,11 @@ map <A-`> :A<CR>
 
 " set font
 """ set guifont=lucida\ console:h10
-set guifont=Dejavu\ Sans\ Mono\ 10
+set guifont=Pragmata\ 11
 " enable line numbers
 set nu
 " use my colorscheme
-colorscheme mustang
+colorscheme solarized
 " ignore case
 set ic
 " turn off word wrap
