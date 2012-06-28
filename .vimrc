@@ -9,7 +9,7 @@ map <A-`> :A<CR>
 
 " set font
 """ set guifont=lucida\ console:h10
-set guifont=Pragmata\ 11
+set guifont=PragmataPro\ 10
 " enable line numbers
 set nu
 " use my colorscheme
@@ -19,7 +19,7 @@ set ic
 " turn off word wrap
 set nowrap
 " set tags path (for definition searching)
-set tags=d:\git\MSC\UntilDawn\code\tags,d:\git\MSC\EyeToySDK\code\tags
+"set tags=d:\git\tags,d:\git\code\tags
 " set up 10-line jumps with control
 map <C-down> 10<down>
 map <C-up> 10<up>
