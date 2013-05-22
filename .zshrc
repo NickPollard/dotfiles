@@ -12,6 +12,10 @@ ZSH_THEME="robbyrussell"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi="gvim --remote-tab-silent"
 alias gitstat="git status -s"
+alias gitlog="git log --oneline"
+
+# variables
+vitae='/home/nick/Projects/Vitae'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -36,4 +40,4 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/nick/Programming/android-ndk-r8:/home/nick/Programming/android-sdk-linux/tools:/home/nick/Programming/android-sdk-linux/platform-tools:/home/nick/Programming/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/linux-x86/bin/
