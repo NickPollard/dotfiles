@@ -23,6 +23,10 @@ set nowrap
 " set up 10-line jumps with control
 map <C-down> 10<down>
 map <C-up> 10<up>
+map <A-right> <C-PageDown>
+map <A-left> <C-PageUp>
+nmap <C-k> 0i//<Esc>
+nmap <C-l> 0xx
 " set tabwidth to 4
 set ts=4
 set shiftwidth=4
