@@ -1,0 +1,7 @@
+[user]
+	name = Nick Pollard
+	email = nickedwardpollard@gmail.com
+[color]
+	ui = true
+[core]
+	pager = cat
