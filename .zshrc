@@ -40,4 +40,4 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/nick/Programming/android-ndk-r8:/home/nick/Programming/android-sdk-linux/tools:/home/nick/Programming/android-sdk-linux/platform-tools:/home/nick/Programming/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/linux-x86/bin/
+export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/nick/Programming/android-ndk-r8:/home/nick/Programming/android-sdk-linux/tools:/home/nick/Programming/android-sdk-linux/platform-tools:/home/nick/Programming/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/linux-x86/bin/:/usr/share/android-sdk-linux_x86/platform-tools:/home/nick/resources/android-ndk-r7b:/home/nick/resources/android-ndk-r7b/toolchains/arm-linux-androideabi-4.4.3
