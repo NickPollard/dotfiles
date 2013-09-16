@@ -18,9 +18,9 @@ hi Special term=bold ctermfg=Magenta guifg=green3
 hi Identifier term=bold ctermfg=Blue guifg=#4070ff gui=bold
 hi Statement term=bold ctermfg=DarkRed gui=NONE guifg=#ff3030 gui=bold
 hi PreProc term=underline ctermfg=Magenta guifg=Purple
-hi Type term=underline ctermfg=Blue gui=NONE guifg=#4070ff
+hi Type term=underline ctermfg=Blue gui=NONE guifg=#4070ff gui=bold
 hi Visual term=reverse ctermfg=Yellow ctermbg=Red gui=NONE guifg=White guibg=Gray15
-hi Search term=reverse ctermfg=Black ctermbg=Cyan gui=NONE guifg=Black guibg=#ffbf80
+hi Search term=reverse ctermfg=Black ctermbg=Cyan gui=italic guibg=NONE guifg=#ff00ff
 hi Tag term=bold ctermfg=DarkGreen guifg=DarkGreen
 hi Error term=reverse ctermfg=15 ctermbg=9 guibg=Red guifg=White
 hi Todo term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
