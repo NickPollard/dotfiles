@@ -20,7 +20,7 @@ hi Statement term=bold ctermfg=DarkRed gui=NONE guifg=#ff3030 gui=bold
 hi PreProc term=underline ctermfg=Magenta guifg=#4070ff gui=bold
 hi Type term=underline ctermfg=Blue guifg=#40bfef gui=bold
 hi Visual term=reverse ctermfg=Yellow ctermbg=Red gui=NONE guifg=White guibg=Gray15
-hi Search term=reverse ctermfg=Black ctermbg=Cyan gui=italic guibg=NONE guifg=#ff00ff
+hi Search term=reverse ctermfg=Black ctermbg=Cyan gui=italic guibg=NONE guifg=#6f00ff
 hi Tag term=bold ctermfg=DarkGreen guifg=DarkGreen
 hi Error term=reverse ctermfg=15 ctermbg=9 guibg=Red guifg=White
 hi Todo term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
