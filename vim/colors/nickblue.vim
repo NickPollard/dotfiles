@@ -11,22 +11,24 @@ if exists("syntax_on")
 endif
 let g:colors_name = "nick"
 
-hi Comment term=italic ctermfg=Red guifg=#40609f gui=italic
-hi Normal guifg=#d0d0a0 guibg=#20304f
+hi Comment term=italic ctermfg=Red guifg=#90907f gui=italic
+hi Normal guifg=#f0f0f0 guibg=#10203f
 hi Constant term=underline ctermfg=Magenta guifg=#7F7f7F
-hi Special term=bold ctermfg=Magenta guifg=green3
+hi Special term=bold ctermfg=Magenta guifg=green3 gui=bold
 hi Identifier term=bold ctermfg=Blue guifg=#4070ff gui=bold
 hi Statement term=bold ctermfg=DarkRed gui=NONE guifg=#ff3030 gui=bold
-hi PreProc term=underline ctermfg=Magenta guifg=Purple
-hi Type term=underline ctermfg=Blue gui=NONE guifg=#4070ff gui=bold
+hi PreProc term=underline ctermfg=Magenta guifg=#4070ff gui=bold
+hi Type term=underline ctermfg=Blue guifg=#40bfef gui=bold
 hi Visual term=reverse ctermfg=Yellow ctermbg=Red gui=NONE guifg=White guibg=Gray15
 hi Search term=reverse ctermfg=Black ctermbg=Cyan gui=italic guibg=NONE guifg=#ff00ff
 hi Tag term=bold ctermfg=DarkGreen guifg=DarkGreen
 hi Error term=reverse ctermfg=15 ctermbg=9 guibg=Red guifg=White
 hi Todo term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
-hi  StatusLine term=bold,reverse cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=NONE guifg=Yellow guibg=DarkGray
-hi Folded guibg=white guifg=gray
-hi VertSplit guifg=gray guibg=gray
+hi StatusLine term=bold,reverse cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=NONE guifg=#40bfef guibg=black
+hi StatusLineNC term=bold,reverse cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=NONE guifg=#40bfef guibg=black
+hi Folded guibg=black guifg=black
+hi FoldColumn guibg=black guifg=black
+hi VertSplit guifg=black guibg=black
 hi! link MoreMsg Comment
 hi! link ErrorMsg Visual
 hi! link WarningMsg ErrorMsg
