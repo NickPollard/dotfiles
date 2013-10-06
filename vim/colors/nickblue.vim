@@ -12,7 +12,7 @@ endif
 let g:colors_name = "nick"
 
 hi Comment term=italic ctermfg=Red guifg=#90907f gui=italic
-hi Normal guifg=#f0f0f0 guibg=#10203f
+hi Normal guifg=#f0f0f0 guibg=#102030
 hi Constant term=underline ctermfg=Magenta guifg=#7F7f7F
 hi Special term=bold ctermfg=Magenta guifg=green3 gui=bold
 hi Identifier term=bold ctermfg=Blue guifg=#4070ff gui=bold
@@ -23,11 +23,14 @@ hi Visual term=reverse ctermfg=Yellow ctermbg=Red gui=NONE guifg=White guibg=Gra
 hi Search term=reverse ctermfg=Black ctermbg=Cyan gui=italic guibg=NONE guifg=#6f00ff
 hi Tag term=bold ctermfg=DarkGreen guifg=DarkGreen
 hi Error term=reverse ctermfg=15 ctermbg=9 guibg=Red guifg=White
-hi Todo term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
-hi StatusLine term=bold,reverse cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=NONE guifg=#40bfef guibg=black
-hi StatusLineNC term=bold,reverse cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=NONE guifg=#40bfef guibg=black
+hi Todo term=standout ctermbg=Yellow ctermfg=Black gui=bold,italic guifg=#f09000 guibg=NONE
+hi StatusLine term=bold cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=BOLD guifg=#40bfef guibg=black
+hi TabLine guibg=#051525 gui=italic guifg=#20406f
+hi TabLineFill gui=NONE guibg=#051525 guifg=#051525
+hi TabLineSel guibg=NONE
+hi StatusLineNC guibg=#40bfef guifg=black
 hi Folded guibg=black guifg=black
-hi FoldColumn guibg=black guifg=black
+hi FoldColumn guibg=NONE guifg=black
 hi VertSplit guifg=black guibg=black
 hi! link MoreMsg Comment
 hi! link ErrorMsg Visual

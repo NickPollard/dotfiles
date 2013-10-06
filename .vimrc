@@ -13,7 +13,7 @@ set guifont=PragmataPro\ 10
 " enable line numbers
 set nu
 " use my colorscheme
-colorscheme solarized
+colorscheme nickblue
 " ignore case
 set ic
 " turn off word wrap
@@ -25,6 +25,7 @@ map <C-down> 10<down>
 map <C-up> 10<up>
 map <A-right> <C-PageDown>
 map <A-left> <C-PageUp>
+map <C-s> <Esc>:w<CR>
 nmap <C-k> 0i//<Esc>
 nmap <C-l> 0xx
 " set tabwidth to 4
@@ -34,6 +35,10 @@ set shiftwidth=4
 "set guioptions+=b
 " Disable toolbar
 set guioptions-=T
+" Disable left scrollbar
+set guioptions-=R
+" Disable right scrollbar
+set guioptions-=L
 
 " Enable syntax based folding
 set foldmethod=syntax
@@ -111,3 +116,9 @@ function! Find(name)
   execute ":e ".l:line
 endfunction
 command! -nargs=1 Find :call Find("<args>")
+
+" Pathogen
+call pathogen#infect()
+
+" Moonscript compile
+au BufWrite *.moon silent !moonc %
