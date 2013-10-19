@@ -301,7 +301,8 @@ syn match	cBitField	display "^\s*\I\i*\s*:\s*[1-9]"me=e-1 contains=cType
 syn match	cBitField	display ";\s*\I\i*\s*:\s*[1-9]"me=e-1 contains=cType
 
 " Added by Nick Pollard
-syn keyword cType		vector matrix GLint GLuint GLenum
+syn keyword cType		vector matrix GLint GLuint GLenum vec4 vec2 mat4 sampler2D
+syn keyword	cStatement	varying uniform attribute
 syn match cSpecial		"\<k[A-Z][a-zA-Z_]*"
 
 if exists("c_minlines")
