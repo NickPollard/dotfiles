@@ -19,7 +19,12 @@ set ic
 " turn off word wrap
 set nowrap
 " set tags path (for definition searching)
-"set tags=d:\git\tags,d:\git\code\tags
+set tags+=~/Projects/Vitae/vitae.tags
+"autocmd BufEnter ~/Projects/Vitae/* :set tags+=~/Projects/Vitae/vitae.tags
+" Tag shortcuts
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
 " set up 10-line jumps with control
 map <C-down> 10<down>
 map <C-up> 10<up>
@@ -35,10 +40,14 @@ set shiftwidth=4
 "set guioptions+=b
 " Disable toolbar
 set guioptions-=T
+" non-gui tabs
+set guioptions-=e
 " Disable left scrollbar
 set guioptions-=R
+set guioptions-=r
 " Disable right scrollbar
 set guioptions-=L
+set guioptions-=l
 
 " Enable syntax based folding
 set foldmethod=syntax
