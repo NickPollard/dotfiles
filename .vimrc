@@ -24,6 +24,8 @@ set tags+=~/Projects/Vitae/vitae.tags
 " Tag shortcuts
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+" Lineheight
+set linespace=3
 
 " set up 10-line jumps with control
 map <C-down> 10<down>
@@ -128,6 +130,9 @@ command! -nargs=1 Find :call Find("<args>")
 
 " Pathogen
 call pathogen#infect()
+
+" ctrlp
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Moonscript compile
 au BufWrite *.moon silent !moonc %
