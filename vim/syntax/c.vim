@@ -301,9 +301,11 @@ syn match	cBitField	display "^\s*\I\i*\s*:\s*[1-9]"me=e-1 contains=cType
 syn match	cBitField	display ";\s*\I\i*\s*:\s*[1-9]"me=e-1 contains=cType
 
 " Added by Nick Pollard
-syn keyword cType		vector matrix GLint GLuint GLenum vec4 vec2 mat4 sampler2D
+syn keyword cType		vector matrix GLint GLuint GLenum vec4 vec2 mat4 sampler2D cacheBlock
 syn keyword	cStatement	varying uniform attribute
 syn match cSpecial		"\<k[A-Z][a-zA-Z_]*"
+syn match cSymbol		"[=+*&]"
+syn match cSemicolon		";"
 
 if exists("c_minlines")
   let b:c_minlines = c_minlines
@@ -367,6 +369,8 @@ hi def link cTodo		Todo
 hi def link cCppSkip		cCppOut
 hi def link cCppOut2		cCppOut
 hi def link cCppOut		Comment
+hi def link cSymbol		Statement
+hi def link cSemicolon		Comment
 
 let b:current_syntax = "c"
 
