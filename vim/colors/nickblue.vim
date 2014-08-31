@@ -32,6 +32,7 @@ hi StatusLineNC guibg=#40bfef guifg=black
 hi Folded guibg=black guifg=black
 hi FoldColumn guibg=NONE guifg=black
 hi VertSplit guifg=black guibg=black
+hi CursorLine guibg=black guifg=#f09000
 hi! link MoreMsg Comment
 hi! link ErrorMsg Visual
 hi! link WarningMsg ErrorMsg
