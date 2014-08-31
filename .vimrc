@@ -129,10 +129,11 @@ endfunction
 command! -nargs=1 Find :call Find("<args>")
 
 " Pathogen
-call pathogen#infect()
+execute pathogen#infect()
 
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_custom_ignore = '\v\.(d|o)$'
 
 " Moonscript compile
 au BufWrite *.moon silent !moonc %
