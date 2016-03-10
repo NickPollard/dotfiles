@@ -15,7 +15,8 @@ alias gitstat="git status -s"
 alias gitlog="git log --oneline"
 
 # variables
-vitae='/home/nick/Projects/Vitae'
+vitae='/home/nick/projects/vitae'
+brando='/home/nick/projects/brando'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -36,6 +37,10 @@ vitae='/home/nick/Projects/Vitae'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
+
+# Enable SSH agent
+#ssh-agent -s
+#ssh-add ~/.ssh/id_rsa
 
 source $ZSH/oh-my-zsh.sh
 

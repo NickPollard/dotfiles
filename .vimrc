@@ -9,7 +9,7 @@ map <A-`> :A<CR>
 
 " set font
 """ set guifont=lucida\ console:h10
-set guifont=PragmataPro\ 10
+set guifont=PragmataPro\ Mono\ 10
 " enable line numbers
 set nu
 " use my colorscheme
@@ -36,8 +36,8 @@ map <C-s> <Esc>:w<CR>
 nmap <C-k> 0i//<Esc>
 nmap <C-l> 0xx
 " set tabwidth to 4
-set ts=4
-set shiftwidth=4
+set ts=2
+set shiftwidth=2
 " Enable Horizontal Scrollbar
 "set guioptions+=b
 " Disable toolbar
