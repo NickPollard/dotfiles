@@ -128,9 +128,6 @@ function! Find(name)
 endfunction
 command! -nargs=1 Find :call Find("<args>")
 
-" Pathogen
-execute pathogen#infect()
-
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_custom_ignore = '\v\.(d|o)$'
