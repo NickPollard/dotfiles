@@ -83,11 +83,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-source ~/.zshrc.local
+
+# git
+export GIT_EDITOR="nvim"
+alias gs="git status -s"
+alias gl="git log --oneline"
 
 alias sz="source ~/.zshrc"
 alias vz="nvim ~/.zshrc"
 alias vi="nvim"
-alias gs="git status -s"
-alias gl="git log --oneline"
+alias vim="nvim"
+
 alias ls="ls -al --color=auto"
+
+source ~/.zshrc.local
