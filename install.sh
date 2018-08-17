@@ -9,3 +9,7 @@ ln -fvs ~/dotfiles/vim .vim
 ln -fvs ~/dotfiles/.gitconfig .gitconfig
 
 touch ~/.zshrc.local
+
+# Install vimplug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
