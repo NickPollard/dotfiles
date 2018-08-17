@@ -1,3 +1,5 @@
 .netrwhist
 *.swp
 vim/bundle
+nvim/colors
+nvim/syntax
