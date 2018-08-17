@@ -96,4 +96,7 @@ alias vim="nvim"
 
 alias ls="ls -al --color=auto"
 
+# Use ripgrep
+alias grep="rg"
+
 source ~/.zshrc.local
