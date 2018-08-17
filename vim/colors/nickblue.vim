@@ -9,7 +9,7 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
-let g:colors_name = "nick"
+let g:colors_name = "nickblue"
 
 hi Comment term=italic ctermfg=Red guifg=#90907f gui=italic
 hi Normal guifg=#f0f0f0 guibg=#102030
