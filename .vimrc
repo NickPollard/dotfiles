@@ -139,3 +139,4 @@ au BufWrite *.moon silent !moonc %
 let mapleader = ","
 
 source ~/.vim/plugins.vim
+source ~/.vim/hotkeys.vim
