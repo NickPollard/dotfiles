@@ -135,4 +135,7 @@ let g:ctrlp_custom_ignore = '\v\.(d|o)$'
 " Moonscript compile
 au BufWrite *.moon silent !moonc %
 
+" Leader is ','
+let mapleader = ","
+
 source ~/.vim/plugins.vim
