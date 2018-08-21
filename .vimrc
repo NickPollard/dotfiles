@@ -11,8 +11,6 @@ map <A-`> :A<CR>
 """ set guifont=lucida\ console:h10
 set guifont=PragmataPro\ Mono\ 10
 " enable line numbers
-set nu
-" use my colorscheme
 colorscheme nickblue
 " ignore case
 set ic
@@ -30,8 +28,6 @@ set linespace=3
 " set up 10-line jumps with control
 map <C-down> 10<down>
 map <C-up> 10<up>
-map <A-right> <C-PageDown>
-map <A-left> <C-PageUp>
 map <C-s> <Esc>:w<CR>
 nmap <C-k> 0i//<Esc>
 nmap <C-l> 0xx
@@ -137,6 +133,9 @@ au BufWrite *.moon silent !moonc %
 
 " Leader is ','
 let mapleader = ","
+
+" Set the working dir to current file dir
+autocmd BufEnter * lcd %:p:h
 
 source ~/.vim/plugins.vim
 source ~/.vim/hotkeys.vim
