@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 # git
 export GIT_EDITOR="nvim"
 alias gs="git status -s"
-alias gl="git log"
+alias gl="git log -30"
 
 alias sz="source ~/.zshrc"
 alias vz="nvim ~/.zshrc"
