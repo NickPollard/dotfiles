@@ -21,3 +21,6 @@ call plug#end()
 map <Leader>f :NERDTreeToggle<CR>
 "   Close NerdTree when opening a file
 let NERDTreeQuitOnOpen=1
+" Cascade directories with single child dirs
+let NERDTreeCascadeSingleChildDir=1
+let NERDTreeCascadeOpenSingleChildDir=1
