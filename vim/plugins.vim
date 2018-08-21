@@ -5,7 +5,7 @@
 " use ',p" to reload and update plugins
 map <Leader>p :source ~/.vimrc <bar> :PlugInstall<CR>
 
-call plug#begin()
+call plug#begin("~/.vim/plugged")
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/goyo.vim'
