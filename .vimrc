@@ -139,3 +139,7 @@ autocmd BufEnter * lcd %:p:h
 
 source ~/.vim/plugins.vim
 source ~/.vim/hotkeys.vim
+
+" for vim-airline
+set guifont=PragmataPro:h10
+set encoding=utf-8
