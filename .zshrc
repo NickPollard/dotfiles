@@ -85,6 +85,7 @@ export GIT_EDITOR="nvim"
 alias gs="git status -s"
 alias gl="git log -30"
 alias co="git checkout"
+alias ff="git merge --ff-only"
 
 alias sz="source ~/.zshrc"
 alias vz="nvim ~/.zshrc"
