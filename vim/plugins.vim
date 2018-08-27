@@ -14,6 +14,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'gabrielelana/vim-markdown'
 
 call plug#end()
 
