@@ -11,6 +11,8 @@ map <A-`> :A<CR>
 """ set guifont=lucida\ console:h10
 set guifont=PragmataPro\ Mono\ 10
 " enable line numbers
+set nu
+" colorscheme
 colorscheme nickblue
 " ignore case
 set ic
