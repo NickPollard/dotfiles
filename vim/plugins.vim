@@ -20,7 +20,7 @@ call plug#end()
 
 " NerdTree
 "   Use ,f to toggle NerdTree
-map <Leader>f :NERDTreeToggle<CR>
+map <Leader>f :NERDTreeToggle %<CR>
 "   Close NerdTree when opening a file
 let NERDTreeQuitOnOpen=1
 " Cascade directories with single child dirs

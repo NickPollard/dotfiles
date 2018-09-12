@@ -136,9 +136,6 @@ au BufWrite *.moon silent !moonc %
 " Leader is ','
 let mapleader = ","
 
-" Set the working dir to current file dir
-autocmd BufEnter * lcd %:p:h
-
 source ~/.vim/plugins.vim
 source ~/.vim/hotkeys.vim
 source ~/.vim/langs.vim
