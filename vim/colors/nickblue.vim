@@ -45,6 +45,15 @@ hi MatchParen guibg=#314354
 hi Directory guifg=#4eafcf ctermfg=blue gui=bold
 hi NERDTreeOpenable guifg=#ff3030 ctermfg=red
 hi NERDTreeClosable guifg=#ff3030 ctermfg=red
+" Dropdown
+"– normal item
+hi Pmenu guifg=#a6a8a9 guibg=#142840 
+"– selected item
+hi PmenuSel guifg=#c6c8c9 guibg=#274b6d
+"– scrollbar
+"hi PmenuSbar 
+"– thumb of the scrollbar
+"hi PmenuThumb 
 " Markdown
 hi htmlH1 term=underline ctermfg=Blue guifg=#4eafcf gui=bold
 hi htmlH2 term=underline ctermfg=Blue guifg=#4eafcf gui=bold
