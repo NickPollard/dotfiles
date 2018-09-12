@@ -4,16 +4,20 @@ endif
 
 " For those who don't want to see `::`...
 if exists('g:rust_conceal_mod_path')
-	syn match rustNiceOperator "::" conceal cchar=ㆍ
+  syn match rustNiceOperator "::" conceal cchar=·
 endif
 
-syn match rustRightArrowHead contained ">" conceal cchar= 
-syn match rustRightArrowTail contained "-" conceal cchar=⟶
-syn match rustNiceOperator "->" contains=rustRightArrowHead,rustRightArrowTail
+syn match rustNiceOperator "->" conceal cchar=⟶
 
-syn match rustFatRightArrowHead contained ">" conceal cchar= 
-syn match rustFatRightArrowTail contained "=" conceal cchar=⟹
-syn match rustNiceOperator "=>" contains=rustFatRightArrowHead,rustFatRightArrowTail
+"syn match rustRightArrowHead contained ">" conceal cchar= 
+"syn match rustRightArrowTail contained "-" conceal cchar=⟶
+"syn match rustNiceOperator "->" contains=rustRightArrowHead,rustRightArrowTail
+
+syn match rustNiceOperator "=>" conceal cchar=⟹
+
+"syn match rustFatRightArrowHead contained ">" conceal cchar= 
+"syn match rustFatRightArrowTail contained "=" conceal cchar=⟹
+"syn match rustNiceOperator "=>" contains=rustFatRightArrowHead,rustFatRightArrowTail
 
 syn match rustNiceOperator /\<\@!_\(_*\>\)\@=/ conceal cchar=′
 
