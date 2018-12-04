@@ -19,7 +19,9 @@ hi Identifier term=bold ctermfg=Blue guifg=#ffffff gui=bold
 hi Statement term=bold ctermfg=DarkRed gui=NONE guifg=#ff3030 gui=bold
 hi Keyword term=bold ctermfg=DarkRed gui=NONE guifg=#ff3030 gui=bold
 hi hsNiceOperator term=bold ctermfg=DarkRed gui=NONE guifg=#ff3030 gui=bold
-hi conceal term=bold ctermfg=DarkRed gui=NONE guibg=#102030 guifg=#ff3030 gui=bold
+"hi conceal term=bold ctermfg=DarkRed gui=NONE guibg=#102030 guifg=#ff3030 gui=bold
+"hi conceal term=bold ctermfg=DarkRed gui=NONE guibg=#102030 guifg=#ff3030 gui=bold
+hi conceal term=bold ctermfg=Magenta guibg=NONE guifg=#667788 gui=bold
 hi PreProc term=underline ctermfg=Magenta guifg=#376b9d gui=bold
 hi Type term=underline ctermfg=Blue guifg=#4eafcf gui=bold
 hi Typedef term=underline ctermfg=Blue guifg=#40bf00 gui=bold
@@ -37,7 +39,7 @@ hi TabLineFill gui=NONE guibg=#051525 guifg=#051525
 hi TabLineSel guibg=NONE
 hi StatusLineNC guibg=#4eafcf guifg=black
 hi Folded guibg=#102030 guifg=#203040
-hi FoldColumn guibg=NONE guifg=black
+hi FoldColumn guibg=NONE guifg=#142840 
 hi VertSplit guifg=black guibg=black
 hi CursorLine guibg=black guifg=#f09000
 hi MatchParen guibg=#314354
@@ -45,6 +47,8 @@ hi MatchParen guibg=#314354
 hi Directory guifg=#4eafcf ctermfg=blue gui=bold
 hi NERDTreeOpenable guifg=#ff3030 ctermfg=red
 hi NERDTreeClosable guifg=#ff3030 ctermfg=red
+" Line Numbers
+hi LineNr guifg=#274b6d gui=bold
 " Dropdown
 "– normal item
 hi Pmenu guifg=#a6a8a9 guibg=#142840 
@@ -85,3 +89,5 @@ hi link SpecialChar	Special
 hi link Delimiter	Special
 hi link SpecialComment Special
 hi link Debug		Special
+" Cpp
+hi link  cppRightArrowHead Special
