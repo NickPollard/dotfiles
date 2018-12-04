@@ -36,6 +36,8 @@ nmap <C-l> 0xx
 " set tabwidth to 4
 set ts=2
 set shiftwidth=2
+" expand tabs into spaces
+set expandtab
 " Enable Horizontal Scrollbar
 "set guioptions+=b
 " Disable toolbar
