@@ -13,6 +13,10 @@ Plug 'junegunn/limelight.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
+" Allow keys to toggle location/quickfix lists
+Plug 'milkypostman/vim-togglelist'
+" Manage and rebuilt ctags
+Plug 'ludovicchabant/vim-gutentags'
 
 " Deoplate (has to handle whether we're on neovim or not)
 if has('nvim')
