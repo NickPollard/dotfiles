@@ -1,3 +1,3 @@
 #!/bin/bash
 
-~/.cargo/bin/rusty-tags vi
+rusty-tags vi && mv rusty-tags.vi tags.temp
