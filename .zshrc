@@ -97,4 +97,6 @@ alias ls="ls -al --color=auto"
 # Use ripgrep
 alias grep="rg"
 
+export RUST_SRC_PATH="$HOME/rust/src"
+
 source ~/.zshrc.local
