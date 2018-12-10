@@ -16,6 +16,7 @@ Plug 'junegunn/limelight.vim'
 " Ctrlp - Fuzzy file finding
 Plug 'kien/ctrlp.vim'
 " Syntastic - syntax checking
+" TODO: Try NeoMake instead?
 Plug 'vim-syntastic/syntastic'
 " Airline - handy powerline info
 Plug 'vim-airline/vim-airline'
@@ -24,7 +25,7 @@ Plug 'milkypostman/vim-togglelist'
 " Gutentags - Manage and rebuild ctags
 Plug 'ludovicchabant/vim-gutentags'
 
-" Deoplate (has to handle whether we're on neovim or not)
+" Deoplete (has to handle whether we're on neovim or not)
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
