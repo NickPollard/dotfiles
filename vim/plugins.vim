@@ -54,6 +54,16 @@ let NERDTreeCascadeOpenSingleChildDir=1
 " vim-airline
 let g:airline_powerline_fonts=1
 
+" Gutentags
+let g:gutentags_project_info = []
+"   Tell Gutentags how to identify Rust projects
+call add(g:gutentags_project_info, {'type': 'rust', 'file': 'Cargo.toml'})
+"   Tell Gutentags how to generate tags for Rust Projects
+let g:gutentags_ctags_executable_rust = '~/.vim/shims/gutentags.sh'
+
+" Tell rust files to use the rust std lib tags as well
+autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
+
 " deoplete
 let g:deoplete#enable_at_startup = 1
 "   tab-complete
