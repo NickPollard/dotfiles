@@ -7,15 +7,21 @@ map <Leader>p :source ~/.vimrc <bar> :PlugInstall<CR>
 
 call plug#begin("~/.vim/plugged")
 
+" NerdTree - FileTree Pane
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Goyo - Distraction free editing (see Limelight)
 Plug 'junegunn/goyo.vim'
+" Limelight - Paragraph highlighting (see Goyo)
 Plug 'junegunn/limelight.vim'
+" Ctrlp - Fuzzy file finding
 Plug 'kien/ctrlp.vim'
+" Syntastic - syntax checking
 Plug 'vim-syntastic/syntastic'
+" Airline - handy powerline info
 Plug 'vim-airline/vim-airline'
-" Allow keys to toggle location/quickfix lists
+" Togglelist - allow keys to toggle location/quickfix lists
 Plug 'milkypostman/vim-togglelist'
-" Manage and rebuilt ctags
+" Gutentags - Manage and rebuild ctags
 Plug 'ludovicchabant/vim-gutentags'
 
 " Deoplate (has to handle whether we're on neovim or not)
