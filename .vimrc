@@ -1,5 +1,4 @@
 set nocompatible
-source $VIMRUNTIME/vimrc_example.vim
 " Enable switching between header/source on :A
 "source plugin/a.vim
 map <A-`> :A<CR>
