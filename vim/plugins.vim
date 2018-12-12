@@ -25,14 +25,14 @@ Plug 'milkypostman/vim-togglelist'
 " Gutentags - Manage and rebuild ctags
 Plug 'ludovicchabant/vim-gutentags'
 
-" Deoplete (has to handle whether we're on neovim or not)
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+"" Deoplete (has to handle whether we're on neovim or not)
+"if has('nvim')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
 
 " Rust
 Plug 'rust-lang/rust.vim'
@@ -71,7 +71,7 @@ autocmd BufRead *.rs :setlocal tags=./tags;/,$RUST_SRC_PATH/rusty-tags.vi
 " Tell rust files to fx gen-cargo
 autocmd BufRead *.rs :silent !fx gen-cargo .
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
-"   tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>" 
+"" deoplete
+"let g:deoplete#enable_at_startup = 1
+""   tab-complete
+"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>" 
