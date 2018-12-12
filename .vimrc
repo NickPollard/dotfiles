@@ -3,11 +3,7 @@ set nocompatible
 "source plugin/a.vim
 map <A-`> :A<CR>
 
-" source $VIMRUNTIME/mswin.vim
-" behave mswin
-
 " set font
-""" set guifont=lucida\ console:h10
 set guifont=PragmataPro\ Mono\ 10
 " enable line numbers
 set nu
@@ -17,9 +13,6 @@ colorscheme nickblue
 set ic
 " turn off word wrap
 set nowrap
-" set tags path (for definition searching)
-set tags+=~/Projects/Vitae/vitae.tags
-"autocmd BufEnter ~/Projects/Vitae/* :set tags+=~/Projects/Vitae/vitae.tags
 " Tag shortcuts
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
@@ -37,8 +30,6 @@ set ts=2
 set shiftwidth=2
 " expand tabs into spaces
 set expandtab
-" Enable Horizontal Scrollbar
-"set guioptions+=b
 " Disable toolbar
 set guioptions-=T
 " non-gui tabs
@@ -96,43 +87,9 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
-" Find file in current directory and edit it.
-function! Find(name)
-  let l:list=system("find . -name '".a:name."' | perl -ne 'print \"$.\\t$_\"'")
-  let l:num=strlen(substitute(l:list, "[^\n]", "", "g"))
-  if l:num < 1
-    echo "'".a:name."' not found"
-    return
-  endif
-  if l:num != 1
-    echo l:list
-    let l:input=input("Which ? (CR=nothing)\n")
-    if strlen(l:input)==0
-      return
-    endif
-    if strlen(substitute(l:input, "[0-9]", "", "g"))>0
-      echo "Not a number"
-      return
-    endif
-    if l:input<1 || l:input>l:num
-      echo "Out of range"
-      return
-    endif
-    let l:line=matchstr("\n".l:list, "\n".l:input."\t[^\n]*")
-  else
-    let l:line=l:list
-  endif
-  let l:line=substitute(l:line, "^[^\t]*\t./", "", "")
-  execute ":e ".l:line
-endfunction
-command! -nargs=1 Find :call Find("<args>")
-
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_custom_ignore = '\v\.(d|o)$'
-
-" Moonscript compile
-au BufWrite *.moon silent !moonc %
 
 " Leader is ','
 let mapleader = ","
