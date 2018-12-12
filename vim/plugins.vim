@@ -19,7 +19,7 @@ Plug 'kien/ctrlp.vim'
 " TODO: Try NeoMake instead?
 Plug 'vim-syntastic/syntastic'
 " Airline - handy powerline info
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
 " Togglelist - allow keys to toggle location/quickfix lists
 Plug 'milkypostman/vim-togglelist'
 " Gutentags - Manage and rebuild ctags
