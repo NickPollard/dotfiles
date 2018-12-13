@@ -58,17 +58,15 @@ let g:airline_powerline_fonts=1
 " Gutentags
 let g:gutentags_project_info = []
 let g:gutentags_project_root = []
-" Tell Gutentags that BUILD.gn is the root of the project
+"   Tell Gutentags that BUILD.gn is the root of the project
 call add(g:gutentags_project_root, 'BUILD.gn')
 "   Tell Gutentags how to identify Rust projects
 call add(g:gutentags_project_info, {'type': 'rust', 'file': 'Cargo.toml'})
 "   Tell Gutentags how to generate tags for Rust Projects
 let g:gutentags_ctags_executable_rust = '~/.vim/shims/gutentags.sh'
-
-" Tell rust files to use the rust std lib tags as well
+"   Tell rust files to use the rust std lib tags as well
 autocmd BufRead *.rs :setlocal tags=./tags,./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
-
-" Tell rust files to fx gen-cargo in the dir of the current file
+"   Tell rust files to fx gen-cargo in the dir of the current file
 autocmd BufRead *.rs :silent !sh -c 'cd %:p:h && exec fx gen-cargo .'
 
 "" deoplete
