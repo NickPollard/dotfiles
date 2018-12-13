@@ -24,6 +24,8 @@ Plug 'vim-syntastic/syntastic'
 Plug 'milkypostman/vim-togglelist'
 " Gutentags - Manage and rebuild ctags
 Plug 'ludovicchabant/vim-gutentags'
+" CurtineIncSw - easily switch between .c and .h files
+Plug 'ericcurtin/CurtineIncSw.vim'
 
 "" Deoplete (has to handle whether we're on neovim or not)
 "if has('nvim')
@@ -73,3 +75,6 @@ autocmd BufRead *.rs :silent !sh -c 'cd %:p:h && exec fx gen-cargo .'
 "let g:deoplete#enable_at_startup = 1
 ""   tab-complete
 "inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>" 
+
+" CurtineeIncSw
+map <Leader>a :call CurtineIncSw()<CR>
