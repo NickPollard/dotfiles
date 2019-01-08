@@ -91,3 +91,5 @@ hi link SpecialComment Special
 hi link Debug		Special
 " Cpp
 hi link  cppRightArrowHead Special
+" Highlight current cursor line
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guifg=none guibg=#132639
