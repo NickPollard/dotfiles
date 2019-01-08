@@ -18,6 +18,8 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " Lineheight
 set linespace=3
+" Show tabs and trailing spaces
+set list
 
 " set up 10-line jumps with control
 map <C-down> 10<down>
