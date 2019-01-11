@@ -5,7 +5,7 @@
 " use ',p" to reload and update plugins
 map <Leader>p :source ~/.vimrc <bar> :PlugInstall<CR>
 
-call plug#begin("~/.vim/plugged")
+call plug#begin("~/.vim/.plugged")
 
 " NerdTree - FileTree Pane
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }

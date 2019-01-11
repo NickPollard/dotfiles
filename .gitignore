@@ -1,8 +1,4 @@
 .netrwhist
 *.swp
-vim/bundle
-nvim/after
-nvim/colors
-nvim/ftdetect
-nvim/syntax
-vim/plugged
+# Plugin directory
+vim/.plugged
