@@ -16,8 +16,10 @@ Plug 'junegunn/limelight.vim'
 " Ctrlp - Fuzzy file finding
 Plug 'kien/ctrlp.vim'
 " Syntastic - syntax checking
-" TODO: Try NeoMake instead?
-Plug 'vim-syntastic/syntastic'
+" [Disabled] in favour of Neo-make
+"Plug 'vim-syntastic/syntastic'
+" Neo-make - asynchronous Syntastic replacement
+Plug 'neomake/neomake'
 " Airline - handy powerline info
 "Plug 'vim-airline/vim-airline'
 " Togglelist - allow keys to toggle location/quickfix lists
@@ -78,3 +80,9 @@ autocmd BufRead *.rs :silent !sh -c 'cd %:p:h && exec fx gen-cargo .'
 
 " CurtineeIncSw
 map <Leader>a :call CurtineIncSw()<CR>
+
+" NeoMake
+"
+" Triggers -
+" * When writing a buffer (no delay).
+call neomake#configure#automake('w')
