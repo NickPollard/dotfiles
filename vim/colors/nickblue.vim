@@ -26,7 +26,7 @@ hi PreProc term=underline ctermfg=Magenta guifg=#376b9d gui=bold
 hi Type term=underline ctermfg=Blue guifg=#4eafcf gui=bold
 hi Typedef term=underline ctermfg=Blue guifg=#40bf00 gui=bold
 hi StorageClass term=underline ctermfg=Blue guifg=#4eafcf gui=bold
-hi Structure term=underline ctermfg=Blue guifg=#4eafcf gui=bold
+hi Structure term=underline ctermfg=DarkRed guifg=#ff3030 gui=bold
 hi Visual term=reverse ctermfg=Yellow ctermbg=Red gui=NONE guifg=White guibg=Gray15
 hi Search term=reverse ctermfg=Black ctermbg=Cyan gui=italic,bold guibg=#003028 guifg=#00DE96
 hi Tag term=bold ctermfg=DarkGreen guifg=DarkGreen
@@ -41,7 +41,6 @@ hi StatusLineNC guibg=#4eafcf guifg=black
 hi Folded guibg=#102030 guifg=#203040
 hi FoldColumn guibg=NONE guifg=#142840 
 hi VertSplit guifg=black guibg=black
-hi CursorLine guibg=black guifg=#f09000
 hi MatchParen guibg=#314354
 " NerdTree
 hi Directory guifg=#4eafcf ctermfg=blue gui=bold
@@ -93,3 +92,4 @@ hi link Debug		Special
 hi link  cppRightArrowHead Special
 " Highlight current cursor line
 hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guifg=none guibg=#132639
+hi CursorLineNR cterm=NONE ctermbg=darkred ctermfg=white guifg=#37668d guibg=#132639
