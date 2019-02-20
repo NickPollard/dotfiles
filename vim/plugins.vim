@@ -14,7 +14,7 @@ Plug 'junegunn/goyo.vim'
 " Limelight - Paragraph highlighting (see Goyo)
 Plug 'junegunn/limelight.vim'
 " Ctrlp - Fuzzy file finding
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 " Syntastic - syntax checking
 " [Disabled] in favour of Neo-make
 "Plug 'vim-syntastic/syntastic'
@@ -76,9 +76,9 @@ autocmd BufRead *.rs :silent !sh -c 'cd %:p:h && exec fx gen-cargo .'
 "" deoplete
 "let g:deoplete#enable_at_startup = 1
 ""   tab-complete
-"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>" 
+"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-" CurtineeIncSw
+" CurtineIncSw
 map <Leader>a :call CurtineIncSw()<CR>
 
 " NeoMake
@@ -86,3 +86,11 @@ map <Leader>a :call CurtineIncSw()<CR>
 " Triggers -
 " * When writing a buffer (no delay).
 call neomake#configure#automake('w')
+
+" Ctrlp
+let g:ctrlp_max_files = 0
+let g:ctrlp_extensions = ['autoignore']
+let g:ctrlp_custom_ignore = {}
+" enable cross-session caching
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
