@@ -9,3 +9,10 @@ hi link cppFnCall Identifier
 syn match cppRightArrowHead "->" conceal cchar=⟶
 
 setlocal conceallevel=2
+
+hi def link cCurlyError Normal
+hi! def link cppModifier Statement
+
+" Highlight 'auto' as a statement, not a type (e.g. consider it like a let
+" bound)
+syn keyword cppStatement auto
