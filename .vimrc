@@ -21,6 +21,12 @@ set linespace=3
 " Show tabs and trailing spaces
 set list
 
+" Minimum line padding between cursor and top and bottom of screen
+set scrolloff=3
+
+" Highlight current cursor line
+set cursorline
+
 " set up 10-line jumps with control
 map <C-down> 10<down>
 map <C-up> 10<up>
@@ -65,7 +71,7 @@ autocmd BufRead *
       \ exec "set path+=".s:tempPath
 
 set diffexpr=MyDiff()
-function MyDiff()
+function! MyDiff()
   let opt = '-a --binary '
   if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
   if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
