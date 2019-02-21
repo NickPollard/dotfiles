@@ -109,3 +109,5 @@ source ~/.vim/langs.vim
 " for vim-airline
 set guifont=PragmataPro:h10
 set encoding=utf-8
+
+nmap <Leader>w :set wrap!<CR>
