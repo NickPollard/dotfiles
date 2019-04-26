@@ -101,6 +101,7 @@ alias grep="rg"
 
 export RUST_SRC_PATH="$HOME/rust/src"
 export PATH=$PATH:$HOME/.local/bin
+export PATH="$HOME/.cargo/bin:$PATH"
 
 source ~/.zshrc.local
 
