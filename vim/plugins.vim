@@ -25,25 +25,21 @@ Plug 'neomake/neomake'
 " Togglelist - allow keys to toggle location/quickfix lists
 Plug 'milkypostman/vim-togglelist'
 " Gutentags - Manage and rebuild ctags
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 " CurtineIncSw - easily switch between .c and .h files
 Plug 'ericcurtin/CurtineIncSw.vim'
-
-"" Deoplete (has to handle whether we're on neovim or not)
-"if has('nvim')
-"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"else
-"  Plug 'Shougo/deoplete.nvim'
-"  Plug 'roxma/nvim-yarp'
-"  Plug 'roxma/vim-hug-neovim-rpc'
-"endif
-
 " Rust
 Plug 'rust-lang/rust.vim'
+" Rust Autocomplete/Syntax
 Plug 'racer-rust/vim-racer'
-
 " Markdown
 Plug 'gabrielelana/vim-markdown'
+" Highlight git changes in sidebar
+Plug 'airblade/vim-gitgutter'
+" Resolve conflicts
+Plug 'rhysd/conflict-marker.vim'
+" Highlight GN files
+Plug 'c0nk/vim-gn'
 
 call plug#end()
 
@@ -69,9 +65,9 @@ call add(g:gutentags_project_info, {'type': 'rust', 'file': 'Cargo.toml'})
 "   Tell Gutentags how to generate tags for Rust Projects
 let g:gutentags_ctags_executable_rust = '~/.vim/shims/gutentags.sh'
 "   Tell rust files to use the rust std lib tags as well
-autocmd BufRead *.rs :setlocal tags=./tags,./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
+"autocmd BufRead *.rs :setlocal tags=./tags,./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
 "   Tell rust files to fx gen-cargo in the dir of the current file
-autocmd BufRead *.rs :silent !sh -c 'cd %:p:h && exec fx gen-cargo .'
+"autocmd BufRead *.rs :silent !sh -c 'cd %:p:h && exec fx gen-cargo .'
 
 "" deoplete
 "let g:deoplete#enable_at_startup = 1
