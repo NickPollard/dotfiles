@@ -87,7 +87,7 @@ alias gl="git log -30"
 alias co="git checkout"
 alias ff="git merge --ff-only"
 alias gds="git diff --stat"
-alias gb="git branch --format \"%(align:position=left,width=16)%(color:blue)%(authordate:relative)%(end)%(align:position=left,width=42)%(color:bold red)%(refname:short)%(end)%(color:nobold #808080)%(subject)\""
+alias gb="git branch --format \"%(align:position=left,width=18)%(color:blue)%(authordate:relative)%(end)%(align:position=left,width=42)%(color:bold red)%(refname:short)%(end)%(color:nobold #808080)%(subject)\""
 
 alias sz="source ~/.zshrc"
 alias vz="nvim ~/.zshrc"
