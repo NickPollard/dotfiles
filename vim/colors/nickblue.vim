@@ -4,6 +4,12 @@
 " Maintainer:	Nick Pollard
 " Last Change:	2016
 
+
+" colors:
+"  lightblue: #4eafcf
+"  darkblue: #274b6d
+"  red: #ff3030
+
 set background=light
 hi clear
 if exists("syntax_on")
@@ -19,8 +25,6 @@ hi Identifier term=bold ctermfg=Blue guifg=#ffffff gui=bold
 hi Statement term=bold ctermfg=DarkRed gui=NONE guifg=#ff3030 gui=bold
 hi Keyword term=bold ctermfg=DarkRed gui=NONE guifg=#ff3030 gui=bold
 hi hsNiceOperator term=bold ctermfg=DarkRed gui=NONE guifg=#ff3030 gui=bold
-"hi conceal term=bold ctermfg=DarkRed gui=NONE guibg=#102030 guifg=#ff3030 gui=bold
-"hi conceal term=bold ctermfg=DarkRed gui=NONE guibg=#102030 guifg=#ff3030 gui=bold
 hi conceal term=bold ctermfg=Magenta guibg=NONE guifg=#667788 gui=bold
 hi PreProc term=underline ctermfg=Magenta guifg=#376b9d gui=bold
 hi Type term=underline ctermfg=Blue guifg=#4eafcf gui=bold
@@ -49,15 +53,12 @@ hi NERDTreeClosable guifg=#ff3030 ctermfg=red
 " Line Numbers
 hi LineNr guifg=#274b6d gui=bold
 " Dropdown
-"– normal item
-hi Pmenu guifg=#a6a8a9 guibg=#142840 
-"– selected item
-hi PmenuSel guifg=#c6c8c9 guibg=#274b6d
-"– scrollbar
-"hi PmenuSbar 
-"– thumb of the scrollbar
-"hi PmenuThumb 
+" – normal item
+  hi Pmenu guifg=#a6a8a9 guibg=#142840
+" – selected item
+  hi PmenuSel guifg=#c6c8c9 guibg=#274b6d
 " Markdown
+hi Title term=underline ctermfg=Blue guifg=#4eafcf gui=bold
 hi htmlH1 term=underline ctermfg=Blue guifg=#4eafcf gui=bold
 hi htmlH2 term=underline ctermfg=Blue guifg=#4eafcf gui=bold
 hi htmlH3 term=underline ctermfg=Blue guifg=#4eafcf gui=bold
