@@ -28,3 +28,6 @@ nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+" highlight .cmx (fuchsia component manifest) as json
+au BufRead,BufNewFile *.cmx set filetype=json
