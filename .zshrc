@@ -103,3 +103,6 @@ export RUST_SRC_PATH="$HOME/rust/src"
 export PATH=$PATH:$HOME/.local/bin
 
 source ~/.zshrc.local
+
+# Use `direnv` to allow local environment setting via `.envrc` files
+eval "$(direnv hook zsh)"
