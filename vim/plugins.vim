@@ -32,6 +32,8 @@ Plug 'ericcurtin/CurtineIncSw.vim'
 Plug 'rust-lang/rust.vim'
 " Rust Autocomplete/Syntax
 Plug 'racer-rust/vim-racer'
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
 " Markdown
 Plug 'gabrielelana/vim-markdown'
 " Highlight git changes in sidebar
