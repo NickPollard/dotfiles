@@ -105,5 +105,11 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 source ~/.zshrc.local
 
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[red]%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%} %{$fg[yellow]%}✗"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}"
+
+PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)%{$reset_color%}$ '
+
 # Use `direnv` to allow local environment setting via `.envrc` files
 eval "$(direnv hook zsh)"
