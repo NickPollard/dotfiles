@@ -111,3 +111,9 @@ set guifont=PragmataPro:h10
 set encoding=utf-8
 
 nmap <Leader>w :set wrap!<CR>
+
+" for ctag navigation
+" cycle-next-tag
+nmap <Leader>] :tn<CR>
+" cycle-prev-tag
+nmap <Leader>[ :tp<CR>
