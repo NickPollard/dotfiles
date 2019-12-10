@@ -43,9 +43,9 @@ hi TabLineFill gui=NONE guibg=#051525 guifg=#051525
 hi TabLineSel guibg=NONE
 hi StatusLineNC guibg=#4eafcf guifg=black
 hi Folded guibg=#102030 guifg=#203040
-hi FoldColumn guibg=NONE guifg=#142840 
+hi FoldColumn guibg=NONE guifg=#142840
 hi VertSplit guifg=black guibg=black
-hi MatchParen guibg=#314354
+hi MatchParen guibg=#3d1255 guifg=#764b8e gui=Bold
 " NerdTree
 hi Directory guifg=#4eafcf ctermfg=blue gui=bold
 hi NERDTreeOpenable guifg=#ff3030 ctermfg=red
@@ -94,3 +94,8 @@ hi link  cppRightArrowHead Special
 " Highlight current cursor line
 hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guifg=none guibg=#132639
 hi CursorLineNR cterm=NONE ctermbg=darkred ctermfg=white guifg=#37668d guibg=#132639
+" Tabar
+hi link TagbarSignature Type
+hi link TagbarScope Identifier
+hi link TagbarKind Special
+hi link TagbarType Statement
