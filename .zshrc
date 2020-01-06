@@ -109,11 +109,17 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[red]%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%} %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}"
 
-#export FX_DEV=$(cat $(cat ~/fuchsia/.fx-build-dir).device)
-#export FX_BOARD=$(cat .fx-build-dir | cut -b 5-)
+function fuchsia_dev {
+  if [[ "${IN_FUCHSIA_TREE}" -eq 1 ]]
+  then
+    _PROMPT_BOARD="$(cat ~/fuchsia/.fx-build-dir | cut -b 5-)"
+    _PROMPT_BUILD_DIR="~/fuchsia/$(cat ~/fuchsia/.fx-build-dir)"
+    _PROMPT_DEVICE="$(cat ${_PROMPT__BUILD_DIR}/.device 2>/dev/null || echo '<none>')"
+    echo "%{$fg_bold[magenta]%}${_PROMPT_BOARD}/${_PROMPT_DEVICE}%{$reset_color%} "
+  fi
+}
 
-PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)%{$reset_color%}%{$fg_bold[magenta]%}$(cat ~/fuchsia/$(cat ~/fuchsia/.fx-build-dir).device)($(cat ~/fuchsia/.fx-build-dir | cut -b 5-))%{$reset_color%} $ '
-#PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} %{$reset_color%}%{$fg_bold[magenta]%}$(cat ~/fuchsia/$(cat ~/fuchsia/.fx-build-dir).device)($(cat ~/fuchsia/.fx-build-dir | cut -b 5-))%{$reset_color%} $ '
+PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)%{$reset_color%}$(fuchsia_dev)$ '
 
 # Use `direnv` to allow local environment setting via `.envrc` files
 eval "$(direnv hook zsh)"
