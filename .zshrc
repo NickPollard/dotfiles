@@ -119,7 +119,11 @@ function fuchsia_dev {
   fi
 }
 
-PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)%{$reset_color%}$(fuchsia_dev)$ '
+function prompt_hostname {
+  hostname | cut -f1 -d.
+}
+
+PROMPT='${ret_status} %{$fg_bold[green]%}$(prompt_hostname)%{$reset_color%} %{$fg_bold[cyan]%}%c%{$reset_color%} $(git_prompt_info)%{$reset_color%}$(fuchsia_dev)$ '
 
 # Use `direnv` to allow local environment setting via `.envrc` files
 eval "$(direnv hook zsh)"
