@@ -35,7 +35,7 @@ Plug 'racer-rust/vim-racer'
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
 " Markdown
-Plug 'gabrielelana/vim-markdown'
+"Plug 'gabrielelana/vim-markdown'
 " Highlight git changes in sidebar
 Plug 'airblade/vim-gitgutter'
 " Resolve conflicts
