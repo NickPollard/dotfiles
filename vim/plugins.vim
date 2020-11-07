@@ -44,6 +44,8 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'c0nk/vim-gn'
 " tagbar - outline of tags in file
 Plug 'majutsushi/tagbar'
+" CoC - LSP based code completion (e.g. rust-analyzer)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -90,7 +92,11 @@ call neomake#configure#automake('w')
 " Ctrlp
 let g:ctrlp_max_files = 0
 let g:ctrlp_extensions = ['autoignore']
-let g:ctrlp_custom_ignore = {}
+"   Ignore fuchsia/out/, fuchsia/third_party/
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](out|third_party)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
 " enable cross-session caching
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0

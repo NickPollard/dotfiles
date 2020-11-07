@@ -99,3 +99,5 @@ hi link TagbarSignature Type
 hi link TagbarScope Identifier
 hi link TagbarKind Special
 hi link TagbarType Statement
+" CoC completion
+hi CoCHintSign guifg=#007faf gui=italic,bold
