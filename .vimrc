@@ -1,3 +1,4 @@
+set termguicolors
 set background=dark
 
 set nocompatible
