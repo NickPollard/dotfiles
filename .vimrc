@@ -1,3 +1,5 @@
+set background=dark
+
 set nocompatible
 " Enable switching between header/source on :A
 "source plugin/a.vim
@@ -33,6 +35,19 @@ map <C-up> 10<up>
 map <C-s> <Esc>:w<CR>
 nmap <C-k> 0i//<Esc>
 nmap <C-l> 0xx
+
+" Copy/paste to system clipboard
+" " Copy to clipboard
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+yg_
+nnoremap <leader>y "+y
+nnoremap <leader>yy "+yy
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
 " set tabwidth to 4
 set ts=2
 set shiftwidth=2

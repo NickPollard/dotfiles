@@ -45,9 +45,38 @@ Plug 'c0nk/vim-gn'
 " tagbar - outline of tags in file
 Plug 'majutsushi/tagbar'
 " CoC - LSP based code completion (e.g. rust-analyzer)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" lspsaga (and config) - lightweight language server plugin
+Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
+" Telescope - fuzzy finder/list navigator
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+" Treesitter - better language parsers (e.g. for syntax highlighting)
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 call plug#end()
+
+" load my lua config
+lua require('my_config')
+
+" LSP
+"   lsp - use rust analyzer config
+lua require('lspconfig').rust_analyzer.setup({})
+"   configure lspsaga
+lua require('lspsaga_config')
+"   Show references on hover
+nnoremap <silent> gh :Lspsaga lsp_finder<CR>
+"   Show doc on hover
+nnoremap <silent>K :Lspsaga hover_doc<CR>
+"   Show definition preview on hover
+nnoremap <silent> gd :Lspsaga preview_definition<CR>
+
+" Telescope
+nnoremap <leader>gb :lua require('telescope.builtin').git_branches({ prompt_prefix=🔍 })<CR>
+nnoremap <leader>gc :lua require('telescope.builtin').git_commits({ prompt_prefix=🔍 })<CR>
 
 " NerdTree
 "   Use ,f to toggle NerdTree
