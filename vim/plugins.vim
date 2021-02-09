@@ -56,6 +56,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 " Treesitter - better language parsers (e.g. for syntax highlighting)
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/playground'
 
 call plug#end()
 
@@ -77,6 +78,27 @@ nnoremap <silent> gd :Lspsaga preview_definition<CR>
 " Telescope
 nnoremap <leader>gb :lua require('telescope.builtin').git_branches({ prompt_prefix=🔍 })<CR>
 nnoremap <leader>gc :lua require('telescope.builtin').git_commits({ prompt_prefix=🔍 })<CR>
+
+
+" Treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  --ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    --disable = { "c", "rust" },  -- list of language that will be disabled
+    custom_captures = {
+      ["cpp.scoped_type_identifier"] = "Identifier",
+    },
+  },
+  playground = {
+    enable = true,
+    disable = {},
+    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+    persist_queries = false -- Whether the query persists across vim sessions
+  }
+}
+EOF
 
 " NerdTree
 "   Use ,f to toggle NerdTree
