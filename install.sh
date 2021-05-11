@@ -4,11 +4,11 @@ mv .zshrc .backup_dotfiles/.
 mv .vim .backup_dotfiles/.
 mv nvim .backup_dotfiles/.
 mv .gitconfig .backup_dotfiles/.
-ln -fvs ~/dotfiles/.vimrc .vimrc
-ln -fvs ~/dotfiles/.zshrc .zshrc
-ln -fvs ~/dotfiles/vim ~/.vim
-ln -fvs ~/dotfiles/vim ~/nvim
-ln -fvs ~/dotfiles/.gitconfig .gitconfig
+ln -fvs ~/.dotfiles/.vimrc .vimrc
+ln -fvs ~/.dotfiles/.zshrc .zshrc
+ln -fvs ~/.dotfiles/vim ~/.vim
+ln -fvs ~/.dotfiles/vim ~/nvim
+ln -fvs ~/.dotfiles/.gitconfig .gitconfig
 
 touch ~/.zshrc.local
 
