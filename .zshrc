@@ -126,7 +126,8 @@ function host_color {
       boxleitner) echo cyan ;;
       nickpollard1) echo yellow ;;
       clu1) echo red ;;
-      *) echo default ;;
+      nickpollard) echo green ;;
+      *) echo blue ;;
     esac
 }
 
