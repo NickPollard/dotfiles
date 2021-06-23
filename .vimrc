@@ -121,6 +121,8 @@ let mapleader = ","
 source ~/.vim/plugins.vim
 source ~/.vim/hotkeys.vim
 source ~/.vim/langs.vim
+" Pickup local-only configs
+source ~/.vimrc.local
 
 " for vim-airline
 set guifont=PragmataPro:h10
