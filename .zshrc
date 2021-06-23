@@ -134,7 +134,8 @@ function prompt_hostname {
   hostname | cut -f1 -d.
 }
 
-PROMPT='${ret_status} %{$bg_bold[$(host_color)]%}%{$fg_bold[black]%}$(prompt_hostname)%{$reset_color%} %{$fg_bold[cyan]%}%c%{$reset_color%} $(git_prompt_info)%{$reset_color%}$(fuchsia_dev)$ '
+#PROMPT='${ret_status} %{$bg_bold[$(host_color)]%}%{$fg_bold[black]%}$(prompt_hostname)%{$reset_color%} %{$fg_bold[cyan]%}%c%{$reset_color%} $(git_prompt_info)%{$reset_color%}$(fuchsia_dev)$ '
+PROMPT='${ret_status} %{$bg_bold[$(host_color)]%}%{$fg_bold[black]%}$(prompt_hostname)%{$reset_color%} %{$fg_bold[cyan]%}%c%{$reset_color%} %{$reset_color%}$(fuchsia_dev)$ '
 
 # Use `direnv` to allow local environment setting via `.envrc` files
 eval "$(direnv hook zsh)"
