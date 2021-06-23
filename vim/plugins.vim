@@ -57,6 +57,10 @@ Plug 'nvim-telescope/telescope.nvim'
 " Treesitter - better language parsers (e.g. for syntax highlighting)
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'nvim-treesitter/playground'
+" LSP signature - provide function signatures when editing function calls
+Plug 'ray-x/lsp_signature.nvim'
+" NerdCommenter - Comment plugin for easy toggling of comment lines
+Plug 'preservim/nerdcommenter'
 
 call plug#end()
 
@@ -109,6 +113,10 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeCascadeSingleChildDir=1
 let NERDTreeCascadeOpenSingleChildDir=1
 
+" NerdCommentor
+" Don't create default mappings
+let g:NERDCreateDefaultMappings = 0
+
 " vim-airline
 let g:airline_powerline_fonts=1
 
@@ -152,12 +160,20 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 
+" Use rg for ctrl-p plugin - ripgrep is fast and makes ctrlp faster
+if executable('rg')
+  set grepprg=rg\ --hidden\ --color=never
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_user_command = 'rg --files --hidden --color=never * %s'
+endif
+
 " Goyo
 nmap <Leader>g :Goyo<CR>
 let g:goyo_width = 100
 
 " Tagbar
-nmap <Leader>b :TagbarToggle<CR>
+" NICKPOLLARD: disable due to blace conflict
+" nmap <Leader>b :TagbarToggle<CR>
 let g:rust_use_custom_ctags_defs = 1
 let g:tagbar_type_rust = {
   \ 'ctagsbin' : '/usr/bin/ctags',
@@ -193,3 +209,6 @@ let g:tagbar_type_rust = {
   \ },
 \ }
 let g:tagbar_width = 60
+
+" Enable lsp-signature
+lua require'lsp_signature'.on_attach()
