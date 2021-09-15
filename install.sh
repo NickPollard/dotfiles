@@ -9,11 +9,12 @@ mv -v ~/.config/nvim/init.vim .backup_dotfiles/.
 
 echo ">>> Symlink dotfiles from our repo..."
 ln -fvs ~/.dotfiles/.vimrc ~/.vimrc
-ln -fvs ~/.dotfiles/.zshrc ~/.zshrc
 ln -fvs ~/.dotfiles/vim ~/.vim
-#ln -fvs ~/.dotfiles/vim ~/nvim
-ln -fvs ~/.dotfiles/.gitconfig .gitconfig
 ln -fvs ~/.dotfiles/vim ~/.config/nvim
+ln -fvs ~/.dotfiles/.zshrc ~/.zshrc
+ln -fvs ~/.dotfiles/.hgrc ~/.hgrc
+ln -fvs ~/.dotfiles/.hgstyle ~/.hgstyle
+ln -fvs ~/.dotfiles/.gitconfig .gitconfig
 
 echo ">>> Create an empty .zshrc.local if one doesn't exist..."
 touch ~/.zshrc.local
