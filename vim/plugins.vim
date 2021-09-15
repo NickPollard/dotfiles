@@ -42,7 +42,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/conflict-marker.vim'
 " Highlight GN files
 Plug 'c0nk/vim-gn'
-" tagbar - outline of tags in file
+" tagbar - show a window with an outline of tags in the current file
+"   usage: <leader>tb to toggle the tagbar
 Plug 'majutsushi/tagbar'
 " CoC - LSP based code completion (e.g. rust-analyzer)
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -56,6 +57,10 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 " Treesitter - better language parsers (e.g. for syntax highlighting)
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+" To install relevant language plugin:
+"  :TSInstall <lang>
+"  e.g.
+"  :TSInstall java
 Plug 'nvim-treesitter/playground'
 " LSP signature - provide function signatures when editing function calls
 Plug 'ray-x/lsp_signature.nvim'
@@ -167,13 +172,14 @@ if executable('rg')
   let g:ctrlp_user_command = 'rg --files --hidden --color=never * %s'
 endif
 
+nnoremap <C-m> :CtrlPMRU<CR>
+
 " Goyo
 nmap <Leader>g :Goyo<CR>
 let g:goyo_width = 100
 
 " Tagbar
-" NICKPOLLARD: disable due to blace conflict
-" nmap <Leader>b :TagbarToggle<CR>
+nmap <Leader>tb :TagbarToggle<CR>
 let g:rust_use_custom_ctags_defs = 1
 let g:tagbar_type_rust = {
   \ 'ctagsbin' : '/usr/bin/ctags',
