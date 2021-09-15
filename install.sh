@@ -15,6 +15,7 @@ ln -fvs ~/.dotfiles/.zshrc ~/.zshrc
 ln -fvs ~/.dotfiles/.hgrc ~/.hgrc
 ln -fvs ~/.dotfiles/.hgstyle ~/.hgstyle
 ln -fvs ~/.dotfiles/.gitconfig .gitconfig
+ln -fvs ~/.dotfiles/.tmux.conf .tmux.conf
 
 echo ">>> Create an empty .zshrc.local if one doesn't exist..."
 touch ~/.zshrc.local
