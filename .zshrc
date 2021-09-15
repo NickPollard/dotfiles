@@ -100,7 +100,7 @@ alias ls="ls -al --color=auto"
 alias grep="rg"
 
 export RUST_SRC_PATH="$HOME/rust/src"
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/depot_tools
 
