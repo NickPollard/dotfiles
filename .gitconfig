@@ -9,3 +9,5 @@
 	default = simple
 [format]
 	pretty = %h %Cblue%ar%x09%Cred%aN%Creset%x09%s %C(yellow)%d%Creset
+[http]
+	cookiefile = /usr/local/google/home/nickpollard/.gitcookies

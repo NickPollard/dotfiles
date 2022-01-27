@@ -3,3 +3,7 @@ paginate = never
 
 [alias]
 log = log --style ~/.hgstyle
+
+[templates]
+show_tag = "\x1B[33m{node|short} \x1B[34m{pad(date|age,14)} \x1B[33;1m{pad(tag, 20)} \x1B[31m{pad(author, 30)} \x1B[0m{desc|firstline}\x1B[0m\n"
+show_bookmark = "\x1B[33m{node|short} \x1B[34m{pad(date|age,14)} \x1B[31;1m{pad(bookmark, 20)} \x1B[0m{desc|firstline}\x1B[0m\n"

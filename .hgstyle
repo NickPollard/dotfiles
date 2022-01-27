@@ -1,1 +1,1 @@
-changeset = "\x1B[33m{node|short} \x1B[34m{pad(date|age,14)} \x1B[31m{pad(author, 30)} \x1B[0m{desc|firstline} \x1B[33;1m{tags} {p4head}\x1B[0m\n"
+changeset = "\x1B[33m{node|short} \x1B[34m{pad(date|age,14)} \x1B[31m{pad(author, 30)} \x1B[0m{desc|firstline} \x1B[33;1m{tags} {p4head}\x1B[0m \x1B[34;1m{bookmarks}\x1B[0m\n"
