@@ -2,6 +2,7 @@
 " Colors and appearance {{{
 set termguicolors
 set background=dark
+
 set guifont=PragmataPro\ Mono\ 10
 colorscheme nickblue
 
@@ -73,30 +74,30 @@ autocmd BufRead *
 		\ exec "set path-=".s:tempPath |
       \ exec "set path+=".s:tempPath
 
-set diffexpr=MyDiff()
-function! MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
+"set diffexpr=MyDiff()
+"function! MyDiff()
+  "let opt = '-a --binary '
+  "if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  "if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  "let arg1 = v:fname_in
+  "if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  "let arg2 = v:fname_new
+  "if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  "let arg3 = v:fname_out
+  "if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  "let eq = ''
+  "if $VIMRUNTIME =~ ' '
+    "if &sh =~ '\<cmd'
+      "let cmd = '""' . $VIMRUNTIME . '\diff"'
+      "let eq = '"'
+    "else
+      "let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    "endif
+  "else
+    "let cmd = $VIMRUNTIME . '\diff'
+  "endif
+  "silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+"endfunction
 
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -106,7 +107,8 @@ let g:ctrlp_custom_ignore = '\v\.(d|o)$'
 let mapleader = ","
 
 " Plugins {{{
-source ~/.vim/plugins.vim
+" TODO - have a toggle control for whether to import usual plugins?
+" source ~/.vim/plugins.vim
 " for vim-airline
 set guifont=PragmataPro:h10
 set encoding=utf-8
@@ -138,3 +140,8 @@ nmap <Leader>[ :tp<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " }}}
+" toggle quickfix window with ,q, span full bottom screen
+nmap <Leader>q :bo cwindow<CR>
+
+nnoremap <leader>ev :bo vsplit ~/.vimrc<CR>
+nnoremap <leader>sv :source ~/.vimrc<CR>

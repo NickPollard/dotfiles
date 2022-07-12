@@ -10,7 +10,7 @@
 "  darkblue: #274b6d
 "  red: #ff3030
 
-set background=light
+set background=dark
 hi clear
 if exists("syntax_on")
   syntax reset
@@ -25,7 +25,6 @@ hi Identifier term=bold ctermfg=Blue guifg=#ffffff gui=bold
 hi Statement term=bold ctermfg=DarkRed gui=NONE guifg=#cf3030 gui=bold
 hi Operator term=bold ctermfg=DarkRed gui=NONE guifg=#376b9d gui=bold
 hi Keyword term=bold ctermfg=DarkRed gui=NONE guifg=#cf3030 gui=bold
-hi hsNiceOperator term=bold ctermfg=DarkRed gui=NONE guifg=#ff3030 gui=bold
 hi conceal term=bold ctermfg=Magenta guibg=NONE guifg=#667788 gui=bold
 hi PreProc term=underline ctermfg=Magenta guifg=#376b9d gui=bold
 hi Type term=underline ctermfg=Blue guifg=#4eafcf gui=bold
@@ -39,7 +38,7 @@ hi Error term=reverse ctermfg=15 ctermbg=9 guibg=#101e2c guifg=#ff3030 gui=bold
 hi SignColumn term=reverse ctermfg=15 ctermbg=9 guibg=#101e2c guifg=#ff3030 gui=bold
 hi Todo term=standout ctermbg=Yellow ctermfg=Black gui=bold,italic guifg=#f09000 guibg=NONE
 hi StatusLine term=bold cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=BOLD guifg=#4eafcf guibg=black
-hi TabLine guibg=#051525 gui=italic guifg=#20406f
+hi TabLine guibg=#051525 guifg=#20406f
 hi TabLineFill gui=NONE guibg=#051525 guifg=#051525
 hi TabLineSel guibg=NONE
 hi StatusLineNC guibg=#4eafcf guifg=black
@@ -102,3 +101,20 @@ hi link TagbarKind Special
 hi link TagbarType Statement
 " CoC completion
 hi CoCHintSign guifg=#007faf gui=italic,bold
+
+" Haskell
+hi hsNiceOperator term=bold ctermfg=DarkRed gui=NONE guifg=#ff3030 gui=bold
+" OCaml
+hi link ocamlModule type
+" TODO - change the ocaml syntax highlighter to allow better distinction here
+hi link ocamlSigEncl keyword
+hi link ocamlStructEncl keyword
+"hi link ocamlmodule type
+"hi link ocamlTypeVar constant
+hi ocamlTypeVar gui=italic guifg=#7F7f7F
+"hi ocamlTypeVar guifg=#ffff00
+hi ocamlLetBinding gui=bold guifg=#ffffff
+hi ocamlValBinding gui=bold guifg=#ffffff
+hi link ocamlTypeDeclName type
+hi ocamlLabel gui=italic guifg=#ffffff
+hi link ocamlConstructor PreProc

@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # CASE_SENSITIVE="true"
 
@@ -48,7 +48,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(gitfast)
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -84,4 +84,4 @@ source ~/.zsh/prompt.zshrc
 source ~/.zsh/rust.zshrc
 
 # Use `direnv` to allow local environment setting via `.envrc` files
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
