@@ -19,6 +19,7 @@ let g:colors_name = "nickblue"
 
 hi Comment term=italic guifg=#90907f gui=italic
 hi Normal guifg=#e6e8e9 guibg=#101e2c
+hi ColorColumn gui=NONE guibg=#101e2c
 hi Constant term=underline ctermfg=Magenta guifg=#7F7f7F
 hi Special term=bold ctermfg=Magenta guifg=#667788 gui=bold
 hi Identifier term=bold ctermfg=Blue guifg=#ffffff gui=bold
@@ -106,6 +107,8 @@ hi CoCHintSign guifg=#007faf gui=italic,bold
 hi hsNiceOperator term=bold ctermfg=DarkRed gui=NONE guifg=#ff3030 gui=bold
 " OCaml
 hi link ocamlModule type
+hi link ocamlStruct keyword
+hi link ocamlSignature keyword
 " TODO - change the ocaml syntax highlighter to allow better distinction here
 hi link ocamlSigEncl keyword
 hi link ocamlStructEncl keyword
@@ -118,3 +121,8 @@ hi ocamlValBinding gui=bold guifg=#ffffff
 hi link ocamlTypeDeclName type
 hi ocamlLabel gui=italic guifg=#ffffff
 hi link ocamlConstructor PreProc
+hi link Cr Todo
+hi link CrSoon Todo
+hi link CrSomeday Todo
+hi link ocamlParen Include
+hi link ocamlBracket Include
