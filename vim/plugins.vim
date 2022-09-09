@@ -70,13 +70,14 @@ Plug 'preservim/nerdcommenter'
 call plug#end()
 
 " load my lua config
-lua require('my_config')
+" TODO - where are lua configs located now?
+"lua require('my_config')
 
 " LSP
 "   lsp - use rust analyzer config
 lua require('lspconfig').rust_analyzer.setup({})
 "   configure lspsaga
-lua require('lspsaga_config')
+"lua require('lspsaga_config')
 "   Show references on hover
 nnoremap <silent> gh :Lspsaga lsp_finder<CR>
 "   Show doc on hover
