@@ -1,42 +1,43 @@
+" TODO - setup code folding for vim files
+" Colors and appearance {{{
 set termguicolors
 set background=dark
+set guifont=PragmataPro\ Mono\ 10
+colorscheme nickblue
+
+" Disable toolbar
+set guioptions-=T
+" non-gui tabs
+set guioptions-=e
+" Disable left scrollbar
+set guioptions-=R
+set guioptions-=r
+" Disable right scrollbar
+set guioptions-=L
+set guioptions-=l
+" }}}
 
 set nocompatible
-" Enable switching between header/source on :A
-"source plugin/a.vim
-map <A-`> :A<CR>
 
-" set font
-set guifont=PragmataPro\ Mono\ 10
-" enable line numbers
-set nu
-" colorscheme
-colorscheme nickblue
-" ignore case
-set ic
-" turn off word wrap
-set nowrap
-" Tag shortcuts
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-" Lineheight
-set linespace=3
-" Show tabs and trailing spaces
-set list
-
-" Minimum line padding between cursor and top and bottom of screen
-set scrolloff=3
-
-" Highlight current cursor line
-set cursorline
-
+" Formatting {{{
+set ts=2
+set shiftwidth=2
+set expandtab       " expand tabs into spaces
+set nu              " enable line numbers
+set ic              " ignore case
+set nowrap          " no word wrap
+set linespace=3     " Lineheight
+set list            " Show tabs and trailing spaces
+set scrolloff=3     " Minimum line padding between cursor and top and bottom of screen
+set cursorline      " Highlight current cursor line
+" }}}
+" Motion {{{
 " set up 10-line jumps with control
 map <C-down> 10<down>
 map <C-up> 10<up>
-map <C-s> <Esc>:w<CR>
-nmap <C-k> 0i//<Esc>
-nmap <C-l> 0xx
-
+" }}}
+" Copy/paste {{{
+"
 " Copy/paste to system clipboard
 " " Copy to clipboard
 vnoremap <leader>y "+y
@@ -48,22 +49,8 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
+" }}}
 
-" set tabwidth to 4
-set ts=2
-set shiftwidth=2
-" expand tabs into spaces
-set expandtab
-" Disable toolbar
-set guioptions-=T
-" non-gui tabs
-set guioptions-=e
-" Disable left scrollbar
-set guioptions-=R
-set guioptions-=r
-" Disable right scrollbar
-set guioptions-=L
-set guioptions-=l
 
 " Enable syntax based folding
 set foldmethod=syntax
@@ -118,15 +105,22 @@ let g:ctrlp_custom_ignore = '\v\.(d|o)$'
 " Leader is ','
 let mapleader = ","
 
+" Plugins {{{
 source ~/.vim/plugins.vim
-source ~/.vim/hotkeys.vim
-source ~/.vim/langs.vim
-" Pickup local-only configs
-source ~/.vimrc.local
-
 " for vim-airline
 set guifont=PragmataPro:h10
 set encoding=utf-8
+" }}}
+" Hotkeys {{{
+source ~/.vim/hotkeys.vim
+" }}}
+" Language specific config {{{
+source ~/.vim/langs.vim
+" }}}
+" Local-only configs {{{
+source ~/.vimrc.local
+" }}}
+
 
 nmap <Leader>w :set wrap!<CR>
 
@@ -135,3 +129,12 @@ nmap <Leader>w :set wrap!<CR>
 nmap <Leader>] :tn<CR>
 " cycle-prev-tag
 nmap <Leader>[ :tp<CR>
+
+" Enable switching between header/source on :A
+"source plugin/a.vim
+"map <A-`> :A<CR>
+"
+" Tag shortcuts {{{
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+" }}}
