@@ -141,7 +141,10 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " }}}
 " toggle quickfix window with ,q, span full bottom screen
-nmap <Leader>q :bo cwindow<CR>
+nnoremap <Leader>q :bo cwindow<CR>
 
 nnoremap <leader>ev :bo vsplit ~/.vimrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>x :x<CR>
