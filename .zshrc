@@ -62,6 +62,8 @@ plugins=(gitfast)
 
 alias sz="source ~/.zshrc"
 alias vz="nvim ~/.zshrc"
+alias vzl="nvim ~/.zshrc.local"
+alias vi="nvim"
 alias vim="nvim"
 
 alias ls="ls -al --color=auto"
