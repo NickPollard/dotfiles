@@ -219,3 +219,7 @@ let g:tagbar_width = 60
 
 " Enable lsp-signature
 lua require'lsp_signature'.on_attach()
+
+" Customize standar Fzf Files command to preview files with `cat`
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
