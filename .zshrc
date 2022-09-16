@@ -57,41 +57,11 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-
-# git
-export GIT_EDITOR="nvim"
-alias gs="git status -s"
-alias gl="git log -30"
-alias co="git checkout"
-alias ff="git merge --ff-only"
-alias gds="git diff --stat"
-alias gb="git branch --format \"%(align:position=left,width=24)%(color:blue)%(authordate:relative)%(end)%(align:position=left,width=42)%(color:bold red)%(refname:short)%(end)%(color:nobold #808080)%(subject)\""
-
 alias sz="source ~/.zshrc"
 alias vz="nvim ~/.zshrc"
-alias vi="nvim"
 alias vim="nvim"
 
 alias ls="ls -al --color=auto"
@@ -99,9 +69,8 @@ alias ls="ls -al --color=auto"
 # Use ripgrep
 alias grep="rg"
 
-export RUST_SRC_PATH="$HOME/rust/src"
+# Path
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/depot_tools
 
 source ~/.zshrc.local
@@ -110,33 +79,9 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[red]%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%} %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}"
 
-function fuchsia_dev {
-  if [[ "${IN_FUCHSIA_TREE}" -eq 1 ]]
-  then
-    _PROMPT_BOARD="$(cat ~/fuchsia/.fx-build-dir | cut -b 5-)"
-    _PROMPT_BUILD_DIR="~/fuchsia/$(cat ~/fuchsia/.fx-build-dir)"
-    _PROMPT_DEVICE="$(cat ${_PROMPT__BUILD_DIR}/.device 2>/dev/null || echo '<none>')"
-    echo "%{$fg_bold[magenta]%}${_PROMPT_BOARD}/${_PROMPT_DEVICE}%{$reset_color%} "
-  fi
-}
-
-# Different colors for different hostnames
-function host_color {
-    case $(prompt_hostname) in
-      boxleitner) echo cyan ;;
-      nickpollard1) echo yellow ;;
-      clu1) echo red ;;
-      nickpollard) echo green ;;
-      *) echo blue ;;
-    esac
-}
-
-function prompt_hostname {
-  hostname | cut -f1 -d.
-}
-
-#PROMPT='${ret_status} %{$bg_bold[$(host_color)]%}%{$fg_bold[black]%}$(prompt_hostname)%{$reset_color%} %{$fg_bold[cyan]%}%c%{$reset_color%} $(git_prompt_info)%{$reset_color%}$(fuchsia_dev)$ '
-PROMPT='${ret_status} %{$bg_bold[$(host_color)]%}%{$fg_bold[black]%}$(prompt_hostname)%{$reset_color%} %{$fg_bold[cyan]%}%c%{$reset_color%} %{$reset_color%}$(fuchsia_dev)$ '
+source ~/.zsh/git.zshrc
+source ~/.zsh/prompt.zshrc
+source ~/.zsh/rust.zshrc
 
 # Use `direnv` to allow local environment setting via `.envrc` files
 eval "$(direnv hook zsh)"
