@@ -4,3 +4,5 @@
 vim/.plugged
 # Jane
 vim/jane
+# Local config
+local
