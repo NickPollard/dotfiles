@@ -2,3 +2,5 @@
 *.swp
 # Plugin directory
 vim/.plugged
+# Jane
+vim/jane
