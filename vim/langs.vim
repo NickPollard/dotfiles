@@ -8,6 +8,15 @@
 "let g:rust_conceal=1
 "let g:rust_conceal_mod_path=1
 
+" Enable Rust LSP via `rust-analyzer`
+lua require('lspconfig').rust_analyzer.setup({})
+" use gd to jump to definition via LSP
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+" What does hover do?
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+
+
+
 "
 " C/C++
 "

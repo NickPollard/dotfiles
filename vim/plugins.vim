@@ -7,6 +7,8 @@ map <Leader>p :source ~/.vimrc <bar> :PlugInstall<CR>
 
 call plug#begin("~/.vim/.plugged")
 
+" My azulejo colorscheme
+Plug 'nickpollard/vim-azulejo'
 " NerdTree - FileTree Pane
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Goyo - Distraction free editing (see Limelight)
@@ -31,7 +33,7 @@ Plug 'ericcurtin/CurtineIncSw.vim'
 " Rust
 Plug 'rust-lang/rust.vim'
 " Rust Autocomplete/Syntax
-Plug 'racer-rust/vim-racer'
+"Plug 'racer-rust/vim-racer'
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
 " Markdown
@@ -74,8 +76,9 @@ call plug#end()
 "lua require('my_config')
 
 " LSP
+" [Moved to langs.vim]
 "   lsp - use rust analyzer config
-lua require('lspconfig').rust_analyzer.setup({})
+"   lua require('lspconfig').rust_analyzer.setup({})
 "   configure lspsaga
 "lua require('lspsaga_config')
 "   Show references on hover
