@@ -3,6 +3,7 @@
 set termguicolors
 set background=dark
 
+set encoding=utf-8
 set guifont=PragmataPro\ Mono\ 10
 colorscheme nickblue
 
@@ -16,6 +17,8 @@ set guioptions-=r
 " Disable right scrollbar
 set guioptions-=L
 set guioptions-=l
+" disable scrollbars
+set guioptions-=b
 " }}}
 
 set nocompatible
@@ -32,6 +35,7 @@ set list            " Show tabs and trailing spaces
 set scrolloff=3     " Minimum line padding between cursor and top and bottom of screen
 set cursorline      " Highlight current cursor line
 " }}}
+
 " Motion {{{
 " set up 10-line jumps with control
 map <C-down> 10<down>
@@ -65,13 +69,10 @@ set nobackup
 " Stop Auto Comment
 au FileType * setl fo-=cro
 
-" disable scrollbars
-set guioptions-=lrb
-
 " always add the current file's directory to the path if not already there
 autocmd BufRead *
       \ let s:tempPath=escape(escape(expand("%:p:h"), ' '), '\ ') |
-		\ exec "set path-=".s:tempPath |
+      \ exec "set path-=".s:tempPath |
       \ exec "set path+=".s:tempPath
 
 "set diffexpr=MyDiff()
@@ -100,8 +101,8 @@ autocmd BufRead *
 "endfunction
 
 " ctrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_custom_ignore = '\v\.(d|o)$'
+"set runtimepath^=~/.vim/bundle/ctrlp.vim
+"let g:ctrlp_custom_ignore = '\v\.(d|o)$'
 
 " Leader is ','
 let mapleader = ","
@@ -110,8 +111,6 @@ let mapleader = ","
 " TODO - have a toggle control for whether to import usual plugins?
 " source ~/.vim/plugins.vim
 " for vim-airline
-set guifont=PragmataPro:h10
-set encoding=utf-8
 " }}}
 " Hotkeys {{{
 source ~/.vim/hotkeys.vim
