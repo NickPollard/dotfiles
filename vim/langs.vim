@@ -40,3 +40,7 @@ nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 " highlight .cmx (fuchsia component manifest) as json
 au BufRead,BufNewFile *.cmx set filetype=json
+
+" TODO can I delete some of the above?
+source ~/.vim/lang.d/rust.vimrc
+source ~/.vim/lang.d/cpp.vimrc
