@@ -1,7 +1,6 @@
 "
 " Language specific settings
 "
-
 " use gd to jump to definition via LSP
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 " What does hover do?
