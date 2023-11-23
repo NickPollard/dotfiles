@@ -85,3 +85,21 @@ source ~/.zsh/rust.zshrc
 
 # Use `direnv` to allow local environment setting via `.envrc` files
 # eval "$(direnv hook zsh)"
+
+# prefix history search on up (and down) keys
+# autoload -U up-line-or-beginning-search
+# autoload -U down-line-or-beginning-search
+# zle -N up-line-or-beginning-search
+# zle -N down-line-or-beginning-search
+# bindkey "^[[A" up-line-or-beginning-search
+# bindkey "^[[B" down-line-or-beginning-search
+
+# Make zsh autocomplete with up arrow
+autoload -Uz history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "$terminfo[kcuu1]" history-beginning-search-backward-end
+bindkey "$terminfo[kcud1]" history-beginning-search-forward-end
+
+# To make Vim colorschemes display correctly within tmux
+export TERM=xterm-256color
