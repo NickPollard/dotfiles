@@ -98,3 +98,25 @@ nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 " Enable switching between header/source on :A 
 "map <A-`> :A<CR>
 " }}}
+
+" General {{{
+" Vim config
+nnoremap <leader>ev :bo vsplit ~/.vimrc<CR>
+nnoremap <leader>sv :source ~/.vimrc<CR>
+" Convenience leader shortcuts
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>x :x<CR>
+" }}}
+
+" Telescope {{{
+nnoremap <leader><leader>g :Telescope live_grep<CR>
+nnoremap <leader><leader>f :Telescope find_files search_dirs={"~/projects/rust/deps/bevy","."}<CR>
+nnoremap <C-p> :Telescope find_files search_dirs={"~/projects/rust/deps/bevy","."}<CR>
+
+" TODO fix this to display more concise paths in the lookup window
+nnoremap <leader><leader>g :Telescope live_grep search_dirs={"~/projects/rust/deps/bevy","."}<CR>
+" Bevy-only livegrep
+nnoremap <leader><leader>bg :Telescope live_grep search_dirs={"~/projects/rust/deps/bevy"} path_display={"smart"}<CR>
+" nnoremap <leader><leader>g :Telescope live_grep search_dirs={"../../deps/bevy","."}<CR>
+" }}}
