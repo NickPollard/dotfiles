@@ -72,3 +72,7 @@ source ~/.vim/langs.vim
 " Local-only configs {{{
 source ~/.vimrc.local
 " }}}
+
+autocmd BufWritePost *.rs silent! !rustfmt <afile>
+
+autocmd BufRead .vimrc set foldmethod=marker
