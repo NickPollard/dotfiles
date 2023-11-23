@@ -82,10 +82,6 @@ noremap q <Nop>
 vnoremap J j
 vnoremap u y
 
-<<<<<<< HEAD
-=======
->>>>>>> 52ebdda ([vim] Update vim config layout)
-
 " " Delete without copying to register
 nnoremap s "_d
 nnoremap S "_S
