@@ -45,8 +45,8 @@ hi TabLineFill gui=NONE guibg=#000000 guifg=#051525
 hi TabLineSel guibg=NONE guifg=#4eafcf
 
 " Status line
-hi StatusLine term=bold cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=BOLD guifg=#4eafcf guibg=#ff0000
-hi StatusLineNC guibg=#4eafcf guifg=black
+hi StatusLine term=bold cterm=NONE ctermfg=Yellow ctermbg=DarkGray gui=BOLD guifg=#002010 guibg=#009e66
+hi StatusLineNC guibg=#101525 guifg=#f09000 gui=Italic
 
 " Folds
 hi Folded guibg=#101e2c guifg=#203040
@@ -73,6 +73,8 @@ hi htmlH3 term=underline ctermfg=Blue guifg=#4eafcf gui=bold
 hi htmlH4 term=underline ctermfg=Blue guifg=#4eafcf gui=bold
 hi htmlH5 term=underline ctermfg=Blue guifg=#4eafcf gui=bold
 hi htmlH6 term=underline ctermfg=Blue guifg=#4eafcf gui=bold
+hi markdownCodeBlock guifg=#667788
+hi markdownCode guifg=#667788 guibg=#132639
 " Links
 hi! link MoreMsg Comment
 hi! link ErrorMsg Visual
