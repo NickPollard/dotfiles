@@ -223,3 +223,45 @@ lua require'lsp_signature'.on_attach()
 " Customize standar Fzf Files command to preview files with `cat`
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Comment'],
+\   'bg':      ['bg', 'Comment'],
+\   'hl':      ['fg', 'Type'],
+\   'fg+':     ['fg', 'Normal'],
+\   'bg+':     ['bg', 'Search'],
+\   'hl+':     ['fg', 'Search'],
+\   'border':  ['bg', 'Normal'],
+\   'gutter':  ['bg', 'Search'],
+\   'pointer': ['fg', 'Search']}
+
+" Goyo
+nnoremap <Leader>g :Goyo<CR>
+let g:goyo_width = 100
+
+" Limelight
+let g:limelight_priority=-1
+nnoremap <Leader>l :Limelight!!<CR>
+
+" NerdTree
+let g:NERDTreeWinSize=45
+
+" Airline customization
+let g:airline_gui_mode = 'gui'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+let g:airline_solarized_bg='dark'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme="murmur"
+let g:airline#extensions#tabline#formatter='unique_tail'
