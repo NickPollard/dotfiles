@@ -1,3 +1,9 @@
+" TODO
+" Perhaps have a vimrc.default instead of just .vimrc
+" .vimrc becomes just .vimrc.local, or just imports it
+" .vimrc imports .vimrc.default (but doesn't _have_ to), and can set config variables first e.g. 'do_not_load_plugins'
+" (The other option is to have specific .vimrc.local.before and .vimrc.local.after files)
+
 " Colors and appearance {{{
 set termguicolors
 set background=dark
@@ -61,7 +67,7 @@ let mapleader = ","
 
 " Plugins {{{
 " TODO - have a toggle control for whether to import usual plugins?
-" source ~/.vim/plugins.vim
+source ~/.vim/plugins.vim
 " }}}
 " Hotkeys {{{
 source ~/.vim/hotkeys.vim
