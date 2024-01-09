@@ -65,18 +65,26 @@ autocmd BufRead *
 " Leader is ','
 let mapleader = ","
 
+let home = expand('~')
+let dotfiles = expand(home . "/dotfiles")
+
+function! SourceLocal(relativePath)
+  let fullPath = g:dotfiles . '/'. a:relativePath
+  exec 'source ' . fullPath
+endfunction
+
 " Plugins {{{
 " TODO - have a toggle control for whether to import usual plugins?
-source ~/.vim/plugins.vim
+call SourceLocal ("vim/plugins.vim")
 " }}}
 " Hotkeys {{{
-source ~/.vim/hotkeys.vim
+call SourceLocal ("vim/hotkeys.vim")
 " }}}
 " Language specific config {{{
-source ~/.vim/langs.vim
+call SourceLocal ("vim/langs.vim")
 " }}}
 " Local-only configs {{{
-source ~/.vimrc.local
+call SourceLocal (".vimrc.local")
 " }}}
 
 autocmd BufWritePost *.rs silent! !rustfmt <afile>

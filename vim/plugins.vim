@@ -3,7 +3,7 @@
 "
 
 " use ',p" to reload and update plugins
-map <Leader><Leader>p :source ~/.vimrc <bar> :PlugInstall<CR>
+map <Leader><Leader>p :call SourceLocal ("~/.vimrc") <bar> :PlugInstall<CR>
 
 call plug#begin("~/.vim/.plugged")
 

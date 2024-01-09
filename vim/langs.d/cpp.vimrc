@@ -3,11 +3,11 @@
 "
 
 " CScope
-set csto=1
-set cscopeverbose!
-if filereadable("cscope.out")
-    cs add cscope.out
-endif
+" set csto=1
+" set cscopeverbose!
+" if filereadable("cscope.out")
+    " cs add cscope.out
+" endif
 
 " CScope / CTags binds
 nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>

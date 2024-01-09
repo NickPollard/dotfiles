@@ -6,3 +6,4 @@ vim/.plugged
 vim/jane
 # Local config
 local
+.vimrc.local
