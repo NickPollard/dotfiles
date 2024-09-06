@@ -5,6 +5,7 @@
 " use ',p" to reload and update plugins
 map <Leader><Leader>p :call SourceLocal ("~/.vimrc") <bar> :PlugInstall<CR>
 
+" {{{ Plugins
 call plug#begin("~/.vim/.plugged")
 
 " My azulejo colorscheme
@@ -15,47 +16,29 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/goyo.vim'
 " Limelight - Paragraph highlighting (see Goyo)
 Plug 'junegunn/limelight.vim'
+" TODO - use FZF instead of CTRLP?
 " Ctrlp - Fuzzy file finding
 Plug 'ctrlpvim/ctrlp.vim'
-" Syntastic - syntax checking
-" [Disabled] in favour of Neo-make
-"Plug 'vim-syntastic/syntastic'
+" TODO - do I need Neo-make now that LSP is in NVIM?
 " Neo-make - asynchronous Syntastic replacement
 Plug 'neomake/neomake'
-" Airline - handy powerline info
-"Plug 'vim-airline/vim-airline'
+" TODO - do I need togglelist?
 " Togglelist - allow keys to toggle location/quickfix lists
 Plug 'milkypostman/vim-togglelist'
-" Gutentags - Manage and rebuild ctags
-"Plug 'ludovicchabant/vim-gutentags'
-" CurtineIncSw - easily switch between .c and .h files
-Plug 'ericcurtin/CurtineIncSw.vim'
 " Rust
 Plug 'rust-lang/rust.vim'
-" Rust Autocomplete/Syntax
-"Plug 'racer-rust/vim-racer'
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
-" Markdown
-"Plug 'gabrielelana/vim-markdown'
-" Highlight git changes in sidebar
-Plug 'airblade/vim-gitgutter'
-" Resolve conflicts
-Plug 'rhysd/conflict-marker.vim'
-" Highlight GN files
-Plug 'c0nk/vim-gn'
-" tagbar - show a window with an outline of tags in the current file
-"   usage: <leader>tb to toggle the tagbar
-Plug 'majutsushi/tagbar'
-" CoC - LSP based code completion (e.g. rust-analyzer)
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" TODO - do I need LSPSaga anymore now that LSP is in NVIM?
 " lspsaga (and config) - lightweight language server plugin
 Plug 'neovim/nvim-lsp'
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
-" Telescope - fuzzy finder/list navigator
+" TODO - document popup
 Plug 'nvim-lua/popup.nvim'
+" TODO - document plenary
 Plug 'nvim-lua/plenary.nvim'
+" Telescope - fuzzy finder/list navigator
 Plug 'nvim-telescope/telescope.nvim'
 " Treesitter - better language parsers (e.g. for syntax highlighting)
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
@@ -64,18 +47,16 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 "  e.g.
 "  :TSInstall java
 Plug 'nvim-treesitter/playground'
+" TODO - set this up properly and begin using it, or remove it
 " LSP signature - provide function signatures when editing function calls
 Plug 'ray-x/lsp_signature.nvim'
 " NerdCommenter - Comment plugin for easy toggling of comment lines
 Plug 'preservim/nerdcommenter'
 
 call plug#end()
+" }}}
 
-" load my lua config
-" TODO - where are lua configs located now?
-"lua require('my_config')
-
-" LSP
+" {{{ Config: LSP
 " [Moved to langs.vim]
 "   lsp - use rust analyzer config
 "   lua require('lspconfig').rust_analyzer.setup({})
@@ -87,13 +68,14 @@ nnoremap <silent> gh :Lspsaga lsp_finder<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
 "   Show definition preview on hover
 nnoremap <silent> gd :Lspsaga preview_definition<CR>
+" }}}
 
-" Telescope
+" {{{ Config: Telescope
 nnoremap <leader>gb :lua require('telescope.builtin').git_branches({ prompt_prefix=🔍 })<CR>
 nnoremap <leader>gc :lua require('telescope.builtin').git_commits({ prompt_prefix=🔍 })<CR>
+" }}}
 
-
-" Treesitter
+" {{{ Config: Treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   --ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -112,8 +94,9 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 EOF
+" }}}
 
-" NerdTree
+" {{{ Config: NerdTree
 "   Use ,f to toggle NerdTree
 map <Leader>f :NERDTreeToggle %<CR>
 "   Close NerdTree when opening a file
@@ -121,43 +104,22 @@ let NERDTreeQuitOnOpen=1
 " Cascade directories with single child dirs
 let NERDTreeCascadeSingleChildDir=1
 let NERDTreeCascadeOpenSingleChildDir=1
+let g:NERDTreeWinSize=45
+" }}}
 
-" NerdCommentor
+" {{{ Config: NerdCommentor
 " Don't create default mappings
 let g:NERDCreateDefaultMappings = 0
+" }}}
 
-" vim-airline
-let g:airline_powerline_fonts=1
-
-" Gutentags
-let g:gutentags_project_info = []
-let g:gutentags_project_root = []
-"   Tell Gutentags that BUILD.gn is the root of the project
-call add(g:gutentags_project_root, 'BUILD.gn')
-"   Tell Gutentags how to identify Rust projects
-call add(g:gutentags_project_info, {'type': 'rust', 'file': 'Cargo.toml'})
-"   Tell Gutentags how to generate tags for Rust Projects
-let g:gutentags_ctags_executable_rust = '~/.vim/shims/gutentags.sh'
-"   Tell rust files to use the rust std lib tags as well
-"autocmd BufRead *.rs :setlocal tags=./tags,./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
-"   Tell rust files to fx gen-cargo in the dir of the current file
-"autocmd BufRead *.rs :silent !sh -c 'cd %:p:h && exec fx gen-cargo .'
-
-"" deoplete
-"let g:deoplete#enable_at_startup = 1
-""   tab-complete
-"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
-" CurtineIncSw
-map <Leader>a :call CurtineIncSw()<CR>
-
-" NeoMake
+" {{{ Config: NeoMake
 "
 " Triggers -
 " * When writing a buffer (no delay).
 call neomake#configure#automake('w')
+" }}}
 
-" Ctrlp
+" {{{ Config: Ctrlp
 let g:ctrlp_max_files = 0
 let g:ctrlp_extensions = ['autoignore']
 "   Ignore fuchsia/out/, fuchsia/third_party/
@@ -177,53 +139,25 @@ if executable('rg')
 endif
 
 nnoremap <C-m> :CtrlPMRU<CR>
+" }}}
 
-" Goyo
+" {{{ Config: Goyo
 nmap <Leader>g :Goyo<CR>
 let g:goyo_width = 100
+" }}} 
 
-" Tagbar
-nmap <Leader>tb :TagbarToggle<CR>
-let g:rust_use_custom_ctags_defs = 1
-let g:tagbar_type_rust = {
-  \ 'ctagsbin' : '/usr/bin/ctags',
-  \ 'ctagstype' : 'rust',
-  \ 'kinds' : [
-      \ 'n:modules',
-      \ 's:structures:1',
-      \ 'i:interfaces',
-      \ 'c:implementations',
-      \ 'f:functions:1',
-      \ 'g:enumerations:1',
-      \ 't:type aliases:1:0',
-      \ 'v:constants:1:0',
-      \ 'M:macros:1',
-      \ 'm:fields:1:0',
-      \ 'e:enum variants:1:0',
-      \ 'P:methods:1',
-  \ ],
-  \ 'sro': '::',
-  \ 'kind2scope' : {
-      \ 'n': 'module',
-      \ 's': 'struct',
-      \ 'i': 'interface',
-      \ 'c': 'implementation',
-      \ 'f': 'function',
-      \ 'g': 'enum',
-      \ 't': 'typedef',
-      \ 'v': 'variable',
-      \ 'M': 'macro',
-      \ 'm': 'field',
-      \ 'e': 'enumerator',
-      \ 'P': 'method',
-  \ },
-\ }
-let g:tagbar_width = 60
+" {{{ Config: Limelight
+let g:limelight_priority=-1
+nnoremap <Leader>l :Limelight!!<CR>
+" }}}
 
+" {{{ Config: LSP
 " Enable lsp-signature
 lua require'lsp_signature'.on_attach()
+" }}}
 
-" Customize standar Fzf Files command to preview files with `cat`
+" {{{ Config: FZF
+" Customize standard Fzf Files command to preview files with `cat`
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
 
@@ -237,34 +171,69 @@ let g:fzf_colors =
 \   'border':  ['bg', 'Normal'],
 \   'gutter':  ['bg', 'Search'],
 \   'pointer': ['fg', 'Search']}
+" }}}
 
-" Goyo
-nnoremap <Leader>g :Goyo<CR>
-let g:goyo_width = 100
 
-" Limelight
-let g:limelight_priority=-1
-nnoremap <Leader>l :Limelight!!<CR>
-
-" NerdTree
-let g:NERDTreeWinSize=45
-
+" {{{ Archive
+" Airline - handy powerline info
+"Plug 'vim-airline/vim-airline'
+" Gutentags - Manage and rebuild ctags
+"Plug 'ludovicchabant/vim-gutentags'
+" Syntastic - syntax checking
+" [Disabled] in favour of Neo-make
+"Plug 'vim-syntastic/syntastic'
+" CurtineIncSw - easily switch between .c and .h files
+"Plug 'ericcurtin/CurtineIncSw.vim'
+" Rust Autocomplete/Syntax
+"Plug 'racer-rust/vim-racer'
+" Markdown
+"Plug 'gabrielelana/vim-markdown'
+" Resolve conflicts
+" Plug 'rhysd/conflict-marker.vim'
+" CoC - LSP based code completion (e.g. rust-analyzer)
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Highlight git changes in sidebar
+" Plug 'airblade/vim-gitgutter'
+" Highlight GN files
+"Plug 'c0nk/vim-gn'
+" tagbar - show a window with an outline of tags in the current file
+"   usage: <leader>tb to toggle the tagbar
+" Plug 'majutsushi/tagbar'
+" {{{ Config: vim-airline
+" let g:airline_powerline_fonts=1
 " Airline customization
-let g:airline_gui_mode = 'gui'
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
+" let g:airline_gui_mode = 'gui'
+" if !exists('g:airline_symbols')
+  " let g:airline_symbols = {}
+" endif
 " powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = ''
 
-let g:airline_solarized_bg='dark'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme="murmur"
-let g:airline#extensions#tabline#formatter='unique_tail'
+" let g:airline_solarized_bg='dark'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline_theme="murmur"
+" let g:airline#extensions#tabline#formatter='unique_tail'
+" }}}
+" {{{ Config: Gutentags
+" let g:gutentags_project_info = []
+" let g:gutentags_project_root = []
+"   Tell Gutentags that BUILD.gn is the root of the project
+" call add(g:gutentags_project_root, 'BUILD.gn')
+"   Tell Gutentags how to identify Rust projects
+" call add(g:gutentags_project_info, {'type': 'rust', 'file': 'Cargo.toml'})
+"   Tell Gutentags how to generate tags for Rust Projects
+" let g:gutentags_ctags_executable_rust = '~/.vim/shims/gutentags.sh'
+"   Tell rust files to use the rust std lib tags as well
+"autocmd BufRead *.rs :setlocal tags=./tags,./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
+"   Tell rust files to fx gen-cargo in the dir of the current file
+"autocmd BufRead *.rs :silent !sh -c 'cd %:p:h && exec fx gen-cargo .'
+" }}}
+" CurtineIncSw
+" map <Leader>a :call CurtineIncSw()<CR>
+" }}}
