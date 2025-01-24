@@ -3,7 +3,7 @@
 "
 
 " use ',p" to reload and update plugins
-map <Leader><Leader>p :call SourceLocal ("~/.vimrc") <bar> :PlugInstall<CR>
+map <Leader><Leader>p :source "~/.vimrc" <CR> :PlugInstall<CR>
 
 " {{{ Plugins
 call plug#begin("~/.vim/.plugged")
@@ -12,34 +12,43 @@ call plug#begin("~/.vim/.plugged")
 Plug 'nickpollard/vim-azulejo'
 " NerdTree - FileTree Pane
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+ 
+" Nvim-tree - lua based FileTree
+Plug 'nvim-tree/nvim-tree.lua'
+
 " Goyo - Distraction free editing (see Limelight)
 Plug 'junegunn/goyo.vim'
 " Limelight - Paragraph highlighting (see Goyo)
 Plug 'junegunn/limelight.vim'
 " TODO - use FZF instead of CTRLP?
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " Ctrlp - Fuzzy file finding
 Plug 'ctrlpvim/ctrlp.vim'
-" TODO - do I need Neo-make now that LSP is in NVIM?
-" Neo-make - asynchronous Syntastic replacement
-Plug 'neomake/neomake'
-" TODO - do I need togglelist?
-" Togglelist - allow keys to toggle location/quickfix lists
+" ALE - asynchronous linting, e.g. syntax and semantic error checks
+Plug 'dense-analysis/ale'
+" Togglelist - allow keys to toggle location/quickfix lists (<leader>l, <leader>q)
 Plug 'milkypostman/vim-togglelist'
 " Rust
 Plug 'rust-lang/rust.vim'
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
-" TODO - do I need LSPSaga anymore now that LSP is in NVIM?
+
+" Mason - manage LSP dependencies
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+" TODO - Learn LspSaga capabilities and use them
 " lspsaga (and config) - lightweight language server plugin
 Plug 'neovim/nvim-lsp'
 Plug 'neovim/nvim-lspconfig'
-Plug 'glepnir/lspsaga.nvim'
-" TODO - document popup
+Plug 'nvimdev/lspsaga.nvim'
+" Popup - Nvim popup functionality
 Plug 'nvim-lua/popup.nvim'
-" TODO - document plenary
+" Plenary - support functions for plugins
 Plug 'nvim-lua/plenary.nvim'
 " Telescope - fuzzy finder/list navigator
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 " Treesitter - better language parsers (e.g. for syntax highlighting)
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " To install relevant language plugin:
@@ -47,13 +56,32 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 "  e.g.
 "  :TSInstall java
 Plug 'nvim-treesitter/playground'
-" TODO - set this up properly and begin using it, or remove it
 " LSP signature - provide function signatures when editing function calls
 Plug 'ray-x/lsp_signature.nvim'
 " NerdCommenter - Comment plugin for easy toggling of comment lines
 Plug 'preservim/nerdcommenter'
 
+" Calculate project roots for current file
+Plug 'ahmedkhalf/project.nvim'
+" View git diffs for all files for a revision
+Plug 'sindrets/diffview.nvim'
+
 call plug#end()
+" }}}
+
+" {{{ Config: ALE
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+" }}}
+
+" {{{ Config: Mason
+lua require("mason").setup()
+" }}}
+
+" {{{ Config: Project
+lua <<EOF
+  require("project_nvim").setup({})
+EOF
 " }}}
 
 " {{{ Config: LSP
@@ -61,24 +89,34 @@ call plug#end()
 "   lsp - use rust analyzer config
 "   lua require('lspconfig').rust_analyzer.setup({})
 "   configure lspsaga
-"lua require('lspsaga_config')
+lua require('lspsaga').setup({})
 "   Show references on hover
 nnoremap <silent> gh :Lspsaga lsp_finder<CR>
 "   Show doc on hover
-nnoremap <silent>K :Lspsaga hover_doc<CR>
+nnoremap <silent>KK :Lspsaga hover_doc<CR>
 "   Show definition preview on hover
 nnoremap <silent> gd :Lspsaga preview_definition<CR>
 " }}}
 
 " {{{ Config: Telescope
+lua <<EOF
+  local telescope = require("telescope")
+  telescope.setup({})
+  telescope.load_extension("live_grep_args")
+  telescope.load_extension('projects')
+EOF
 nnoremap <leader>gb :lua require('telescope.builtin').git_branches({ prompt_prefix=🔍 })<CR>
 nnoremap <leader>gc :lua require('telescope.builtin').git_commits({ prompt_prefix=🔍 })<CR>
 " }}}
 
 " {{{ Config: Treesitter
+" Do :TSInstall markdown
+"    :TSInstall rust
+"    etc.
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   --ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "rust", "cpp", "ocaml", "haskell", "javascript", "typescript" },
   highlight = {
     enable = true,              -- false will disable the whole extension
     --disable = { "c", "rust" },  -- list of language that will be disabled
@@ -96,9 +134,14 @@ require'nvim-treesitter.configs'.setup {
 EOF
 " }}}
 
+" {{{ Config: Nvim-tree
+lua require("nvim-tree").setup()
+map <Leader>f :NvimTreeToggle<CR>
+" }}}
+
 " {{{ Config: NerdTree
 "   Use ,f to toggle NerdTree
-map <Leader>f :NERDTreeToggle %<CR>
+" map <Leader>f :NERDTreeToggle %<CR>
 "   Close NerdTree when opening a file
 let NERDTreeQuitOnOpen=1
 " Cascade directories with single child dirs
@@ -110,13 +153,6 @@ let g:NERDTreeWinSize=45
 " {{{ Config: NerdCommentor
 " Don't create default mappings
 let g:NERDCreateDefaultMappings = 0
-" }}}
-
-" {{{ Config: NeoMake
-"
-" Triggers -
-" * When writing a buffer (no delay).
-call neomake#configure#automake('w')
 " }}}
 
 " {{{ Config: Ctrlp
@@ -144,7 +180,7 @@ nnoremap <C-m> :CtrlPMRU<CR>
 " {{{ Config: Goyo
 nmap <Leader>g :Goyo<CR>
 let g:goyo_width = 100
-" }}} 
+" }}}
 
 " {{{ Config: Limelight
 let g:limelight_priority=-1
@@ -236,4 +272,12 @@ let g:fzf_colors =
 " }}}
 " CurtineIncSw
 " map <Leader>a :call CurtineIncSw()<CR>
+" Neo-make - asynchronous Syntastic replacement
+" {{{ Config: NeoMake
+"
+" Triggers -
+" * When writing a buffer (no delay).
+" call neomake#configure#automake('w')
+" }}}
+
 " }}}

@@ -66,7 +66,7 @@ autocmd BufRead *
 let mapleader = ","
 
 let home = expand('~')
-let dotfiles = expand(home . "/dotfiles")
+let dotfiles = expand(home . "/.dotfiles")
 
 function! SourceLocal(relativePath)
   let fullPath = g:dotfiles . '/'. a:relativePath
