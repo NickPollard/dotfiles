@@ -41,7 +41,7 @@ Plug 'williamboman/mason-lspconfig.nvim'
 " lspsaga (and config) - lightweight language server plugin
 Plug 'neovim/nvim-lsp'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvimdev/lspsaga.nvim'
+"Plug 'nvimdev/lspsaga.nvim'
 " Popup - Nvim popup functionality
 Plug 'nvim-lua/popup.nvim'
 " Plenary - support functions for plugins
@@ -50,14 +50,14 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 " Treesitter - better language parsers (e.g. for syntax highlighting)
-"" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " To install relevant language plugin:
 "  :TSInstall <lang>
 "  e.g.
 "  :TSInstall java
-" Plug 'nvim-treesitter/playground'
+ Plug 'nvim-treesitter/playground'
 " LSP signature - provide function signatures when editing function calls
-"Plug 'ray-x/lsp_signature.nvim'jj
+Plug 'ray-x/lsp_signature.nvim'
 " NerdCommenter - Comment plugin for easy toggling of comment lines
 Plug 'preservim/nerdcommenter'
 
@@ -131,7 +131,7 @@ EOF
 "   lsp - use rust analyzer config
 "   lua require('lspconfig').rust_analyzer.setup({})
 "   configure lspsaga
-lua require('lspsaga').setup({})
+"lua require('lspsaga').setup({})
 "   Show references on hover
 nnoremap <silent> gh :Lspsaga lsp_finder<CR>
 "   Show doc on hover
