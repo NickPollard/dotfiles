@@ -152,3 +152,10 @@ hi DiffAdd guibg=#203050 gui=italic
 
 " This is is used for fzf pattern-match (e.g. when using `:Rg`)
 hi WarningMsg ctermfg=DarkRed guifg=#f09000
+
+" Telescope
+hi TelescopeMatching guifg=#4eafcf gui=bold
+hi TelescopePreviewLine guibg=#132639
+hi TelescopeSelection guibg=#132639
+hi TelescopeSelectionCaret guibg=#132639
+hi TelescopeNormal guifg=#7F7f7F
