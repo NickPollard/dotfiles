@@ -2,8 +2,8 @@
 " Vim Plugin
 "
 
-" use ',p" to reload and update plugins
-map <Leader><Leader>p :source "~/.vimrc" <CR> :PlugInstall<CR>
+" use ',,p' to reload and update plugins
+map <Leader><Leader>p :source $MYVIMRC <bar> :PlugInstall<CR>
 
 " {{{ Plugins
 call plug#begin("~/.vim/.plugged")
@@ -23,8 +23,8 @@ Plug 'junegunn/limelight.vim'
 " TODO - use FZF instead of CTRLP?
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Ctrlp - Fuzzy file finding
-Plug 'ctrlpvim/ctrlp.vim'
+" Neo-make - asynchronous Syntastic replacement
+Plug 'neomake/neomake'
 " ALE - asynchronous linting, e.g. syntax and semantic error checks
 Plug 'dense-analysis/ale'
 " Togglelist - allow keys to toggle location/quickfix lists (<leader>l, <leader>q)
@@ -50,14 +50,14 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 " Treesitter - better language parsers (e.g. for syntax highlighting)
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+"" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " To install relevant language plugin:
 "  :TSInstall <lang>
 "  e.g.
 "  :TSInstall java
-Plug 'nvim-treesitter/playground'
+" Plug 'nvim-treesitter/playground'
 " LSP signature - provide function signatures when editing function calls
-Plug 'ray-x/lsp_signature.nvim'
+"Plug 'ray-x/lsp_signature.nvim'jj
 " NerdCommenter - Comment plugin for easy toggling of comment lines
 Plug 'preservim/nerdcommenter'
 
@@ -66,6 +66,45 @@ Plug 'ahmedkhalf/project.nvim'
 " View git diffs for all files for a revision
 Plug 'sindrets/diffview.nvim'
 
+" TODO - new plugins
+" hop, trouble, tagbar, nvim-tree, todo-comments plugins
+" - vim-illuminate
+" - vim-floaterm
+
+" highlight 'todo/fixme' coments etc.
+Plug 'folke/todo-comments.nvim'
+" Pretty list of compiler warnings etc.
+Plug 'folke/trouble.nvim'
+" Highlight word under cursor elsewhere in page
+Plug 'RRethy/vim-illuminate'
+" Easy comment/un-comment
+Plug 'numToStr/Comment.nvim'
+" Easymotion-like jumping
+Plug 'smoka7/hop.nvim'
+" floating terminal
+Plug 'voldikss/vim-floaterm'
+" Highlight cursor when jumping
+Plug 'danilamihailov/beacon.nvim'
+
+" C# language server
+Plug 'OmniSharp/omnisharp-vim'
+
+" Vim script debug assistance
+Plug 'tpope/vim-scriptease'
+
+" Fidget progress window in bottom corner
+" Plug 'j-hui/fidget.nvim'
+
+" Autocomplete (for LSP, particularly)
+" Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/cmp-path'
+" Plug 'hrsh7th/cmp-cmdline'
+" Plug 'hrsh7th/nvim-cmp'
+ 
+" Autocomplete (for Omnisharp, particularly)
+Plug 'prabirshrestha/asyncomplete.vim'
+
 call plug#end()
 " }}}
 
@@ -73,6 +112,9 @@ call plug#end()
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 " }}}
+"initialize numToStr/Comment
+lua require('Comment').setup()
+
 
 " {{{ Config: Mason
 lua require("mason").setup()
@@ -155,28 +197,6 @@ let g:NERDTreeWinSize=45
 let g:NERDCreateDefaultMappings = 0
 " }}}
 
-" {{{ Config: Ctrlp
-let g:ctrlp_max_files = 0
-let g:ctrlp_extensions = ['autoignore']
-"   Ignore fuchsia/out/, fuchsia/third_party/
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](out|third_party)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }
-" enable cross-session caching
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
-
-" Use rg for ctrl-p plugin - ripgrep is fast and makes ctrlp faster
-if executable('rg')
-  set grepprg=rg\ --hidden\ --color=never
-  let g:ctrlp_use_caching = 0
-  let g:ctrlp_user_command = 'rg --files --hidden --color=never * %s'
-endif
-
-nnoremap <C-m> :CtrlPMRU<CR>
-" }}}
-
 " {{{ Config: Goyo
 nmap <Leader>g :Goyo<CR>
 let g:goyo_width = 100
@@ -250,7 +270,6 @@ let g:fzf_colors =
 " let g:airline_symbols.branch = ''
 " let g:airline_symbols.readonly = ''
 " let g:airline_symbols.linenr = ''
-
 " let g:airline_solarized_bg='dark'
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline_theme="murmur"

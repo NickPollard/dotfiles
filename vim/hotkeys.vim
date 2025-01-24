@@ -94,7 +94,9 @@ nnoremap ss "_ss
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 " What does hover do?
 " TODO move to hotkeys
-nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <leader>k     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <leader>d :OmniSharpDocumentation<CR>
+nnoremap <silent> <leader><leader>s :OmniSharpSignatureHelp<CR>
 " Enable switching between header/source on :A 
 "map <A-`> :A<CR>
 " }}}
@@ -111,7 +113,7 @@ nnoremap <leader>x :x<CR>
 
 " Telescope {{{
 nnoremap <leader><leader>g :Telescope live_grep<CR>
-nnoremap <leader><leader>f :Telescope find_files search_dirs={"~/projects/rust/deps/bevy","."}<CR>
+" nnoremap <leader><leader>f :Telescope find_files search_dirs={"~/projects/rust/deps/bevy","."}<CR>
 nnoremap <C-p> :Telescope find_files search_dirs={"~/projects/rust/deps/bevy","."}<CR>
 
 " TODO fix this to display more concise paths in the lookup window
@@ -119,4 +121,18 @@ nnoremap <leader><leader>g :Telescope live_grep search_dirs={"~/projects/rust/de
 " Bevy-only livegrep
 nnoremap <leader><leader>bg :Telescope live_grep search_dirs={"~/projects/rust/deps/bevy"} path_display={"smart"}<CR>
 " nnoremap <leader><leader>g :Telescope live_grep search_dirs={"../../deps/bevy","."}<CR>
+
+nnoremap <leader><leader>mg :Telescope live_grep search_dirs={"c:/users/nicke/projects/bbsg/Mercantale","c:/users/nicke/projects/bbsg/Godot","c:/users/nicke/projects/bbsg/MercantaleAssets","c:/users/nicke/projects/bbsg/MercantaleWebServices","c:/users/nicke/projects/bbsg/TwineSharp"}<CR>
+nnoremap <leader><leader>mf :Telescope find_files search_dirs={"c:/users/nicke/projects/bbsg/Mercantale","c:/users/nicke/projects/bbsg/Godot","c:/users/nicke/projects/bbsg/MercantaleAssets","c:/users/nicke/projects/bbsg/MercantaleWebServices","c:/users/nicke/projects/bbsg/TwineSharp"}<CR>
+
+nnoremap <leader><leader>dg :Telescope live_grep search_dirs={"c:/users/nicke/dotfiles"}<CR>
+nnoremap <leader><leader>df :Telescope find_files search_dirs={"c:/users/nicke/dotfiles"}<CR>
+
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" }}}
+
+" Autocomplete {{{
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 " }}}
