@@ -1,8 +1,9 @@
 "
 " Rust
 "
-"let g:rust_conceal=1
-"let g:rust_conceal_mod_path=1
+
+" Run Rustfmt on save of '.rs' files
+autocmd BufWritePost *.rs silent! !rustfmt <afile>
 
 " Enable Rust LSP via `rust-analyzer`
 

@@ -6,5 +6,7 @@ nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 " What does hover do?
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 
-source "langs.d/rust.vimrc"
-source "langs.d/cpp.vimrc"
+let path = expand('<sfile>:p:h')
+exec 'source' path . '/' . 'langs.d/rust.vimrc'
+exec 'source' path . '/' . 'langs.d/cpp.vimrc'
+exec 'source' path . '/' . 'langs.d/csharp.vimrc'
