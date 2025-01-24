@@ -39,7 +39,6 @@ set linespace=3     " Lineheight
 set list            " Show tabs and trailing spaces
 set scrolloff=3     " Minimum line padding between cursor and top and bottom of screen
 set cursorline      " Highlight current cursor line
-set scrolloff=3
 " }}}
 
 " Folding {{{
@@ -65,28 +64,25 @@ autocmd BufRead *
 " Leader is ','
 let mapleader = ","
 
-let home = expand('~')
-let dotfiles = expand(home . "/.dotfiles")
-
-function! SourceLocal(relativePath)
-  let fullPath = g:dotfiles . '/'. a:relativePath
-  exec 'source ' . fullPath
-endfunction
+" Use relative imports
+let path = expand('<sfile>:p:h')
 
 " Plugins {{{
-" TODO - have a toggle control for whether to import usual plugins?
-call SourceLocal ("vim/plugins.vim")
+exec 'source' path . '/' . 'vim/plugins.vim'
 " }}}
 " Hotkeys {{{
-call SourceLocal ("vim/hotkeys.vim")
+exec 'source' path . '/' . 'vim/hotkeys.vim'
 " }}}
 " Language specific config {{{
-call SourceLocal ("vim/langs.vim")
+exec 'source' path . '/' . 'vim/langs.vim'
 " }}}
 " Local-only configs {{{
-call SourceLocal (".vimrc.local")
+exec 'source' path . '/' . '.vimrc.local'
 " }}}
 
-autocmd BufWritePost *.rs silent! !rustfmt <afile>
-
 autocmd BufRead .vimrc set foldmethod=marker
+
+" Enable faster lua loading
+lua vim.loader.enable()
+
+set fileformats=unix,dos
