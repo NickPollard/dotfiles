@@ -65,19 +65,19 @@ autocmd BufRead *
 let mapleader = ","
 
 " Use relative imports
-let path = expand('<sfile>:p:h')
+let configPath = expand('<sfile>:p:h')
 
 " Plugins {{{
-exec 'source' path . '/' . 'vim/plugins.vim'
+exec 'source' configPath . '/vim/plugins.vim'
 " }}}
 " Hotkeys {{{
-exec 'source' path . '/' . 'vim/hotkeys.vim'
+exec 'source' configPath . '/vim/hotkeys.vim'
 " }}}
 " Language specific config {{{
-exec 'source' path . '/' . 'vim/langs.vim'
+exec 'source' configPath . '/vim/langs.vim'
 " }}}
 " Local-only configs {{{
-exec 'source' path . '/' . '.vimrc.local'
+exec 'source' configPath . '/.vimrc.local'
 " }}}
 
 autocmd BufRead .vimrc set foldmethod=marker
