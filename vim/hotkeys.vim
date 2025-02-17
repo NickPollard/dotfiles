@@ -112,6 +112,14 @@ nnoremap <leader>x :x<CR>
 " }}}
 
 " Telescope {{{
+" ,tg -> Grep
+" ,tb -> Buffers
+" ,tf -> Files
+" TODO - what dirs? Search for .git root?
+nnoremap <leader>tg :Telescope live_grep<CR>
+nnoremap <leader>tb :Telescope buffers<cr>
+nnoremap <leader>tf :Telescope find_files search_dirs={"~/projects/rust/deps/bevy","."}<CR>
+
 nnoremap <leader><leader>g :Telescope live_grep<CR>
 " nnoremap <leader><leader>f :Telescope find_files search_dirs={"~/projects/rust/deps/bevy","."}<CR>
 nnoremap <C-p> :Telescope find_files search_dirs={"~/projects/rust/deps/bevy","."}<CR>
@@ -128,7 +136,7 @@ nnoremap <leader><leader>mf :Telescope find_files search_dirs={"c:/users/nicke/p
 nnoremap <leader><leader>dg :Telescope live_grep search_dirs={"c:/users/nicke/dotfiles"}<CR>
 nnoremap <leader><leader>df :Telescope find_files search_dirs={"c:/users/nicke/dotfiles"}<CR>
 
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader><leader>fb <cmd>Telescope buffers<cr>
 " }}}
 
 " Autocomplete {{{

@@ -24,7 +24,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " Neo-make - asynchronous Syntastic replacement
-Plug 'neomake/neomake'
+"Plug 'neomake/neomake'
 " ALE - asynchronous linting, e.g. syntax and semantic error checks
 Plug 'dense-analysis/ale'
 " Togglelist - allow keys to toggle location/quickfix lists (<leader>l, <leader>q)

@@ -159,3 +159,15 @@ hi TelescopePreviewLine guibg=#132639
 hi TelescopeSelection guibg=#132639
 hi TelescopeSelectionCaret guibg=#132639
 hi TelescopeNormal guifg=#7F7f7F
+
+hi LspDiagnosticsVirtualTextError guifg=blue gui=bold,italic,underline
+hi LspDiagnosticsVirtualTextWarning guifg=orange gui=bold,italic,underline
+hi LspDiagnosticsVirtualTextInformation guifg=yellow gui=bold,italic,underline
+hi LspDiagnosticsVirtualTextHint guifg=green gui=bold,italic,underline
+hi LspInlayHint guifg=green
+hi DiagnosticError guifg=#676b9d gui=italic,underline guibg=#15243c
+hi DiagnosticHint guifg=#696950 gui=italic,underline guibg=#192431
+hi link @lsp.type.class Type
+hi link @lsp.type.struct Type
+
+"hi Comment term=italic guifg=#90907f gui=italic
